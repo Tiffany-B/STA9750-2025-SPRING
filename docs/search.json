@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "A Glimpse Of Stephanie",
+    "section": "About Me!",
+    "text": "About Me!\n\n\n\n\n\nflowchart TD\n  A(Stephanie) --&gt; B(Born in Brooklyn, NY)\n  B --&gt; C{Education}\n  C --&gt; D(Bachelor's of Finance)\n  C --&gt; E(Master's of Science in Business Analytics w/ Concentration in Data Analytics)\n\n\n\n\n\n\nHi! I’m Stephanie. I’m a New York native who has lived in two of NYC’s boroughs. I currently live in Nassau County, Long Island. I graduated from Muhlenberg College with a Bachelor of Arts in Finance. I am pursuing a master’s degree in business analytics because I would like to become proficient in data analysis and software tools. In addition, I am invested in learning how to use data to craft compelling stories that influence insights and decision-making.\n\nFun Facts\n\nI used to work for TD Bank\nI have a Series 7 License\nI almost became an accountant\n\n\n\nLast Updated: Wednesday 02 12, 2025 at 19:38PM"
+  }
+]
