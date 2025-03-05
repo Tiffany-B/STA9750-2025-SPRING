@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://&lt;Tiffany-B&gt;.github.io/STA9750-2025-SPRING/index.html</loc>
-    <lastmod>2025-02-13T00:55:25.761Z</lastmod>
-  </url>
-  <url>
     <loc>https://&lt;Tiffany-B&gt;.github.io/STA9750-2025-SPRING/index1.html</loc>
     <lastmod>2025-02-13T01:05:11.450Z</lastmod>
+  </url>
+  <url>
+    <loc>https://&lt;Tiffany-B&gt;.github.io/STA9750-2025-SPRING/index.html</loc>
+    <lastmod>2025-02-13T00:57:30.451Z</lastmod>
+  </url>
+  <url>
+    <loc>https://&lt;Tiffany-B&gt;.github.io/STA9750-2025-SPRING/mp01.html</loc>
+    <lastmod>2025-03-05T04:01:03.633Z</lastmod>
   </url>
 </urlset>
