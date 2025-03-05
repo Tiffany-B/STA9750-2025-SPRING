@@ -17,6 +17,9 @@ format:
     toc: false
     mermaid:
       theme: default
-      
+    code-fold: true
+    code-summary: "Show Code"
+    code-overflow: wrap
+    
 editor:
   mode: source

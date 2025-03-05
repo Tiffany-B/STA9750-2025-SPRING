@@ -1,0 +1,665 @@
+---
+title: "Commission to Analyze Taxpayer Spending (CATS)"
+author: "Stephanie Jean Baptiste"
+execute:
+  echo: false
+---
+
+### Summary
+
+
+**The report analysis below serves to address NYC's payroll expenses and identify opportunities to spend taxpayer monies more effectively.**
+
+**Please refer to the following dataset: ** [City Payroll Dataset](https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/about_data)
+
+*The goal for this analysis is to analyze the NYC Payroll and report possible savings for the CATS Commissioners consideration*
+
+#### Point 1 -  Employee Salary Table for NYC Mayor, Eric L Adams
+
+
+The following table displays NYC Mayor Eric L Adams salary over a 10 year career span in public office. We are required to review this data to understand how NYC taxpayer monies are spent on highly ranked officials like Mr. Adams. As well as, how his salary over the past 10 years compares to the regular NYC employee.
+
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+
+if (!requireNamespace("httr2", quietly = TRUE)) install.packages("httr2")
+if (!requireNamespace("jsonlite", quietly = TRUE)) install.packages("jsonlite")
+if (!requireNamespace("dplyr", quietly = TRUE)) install.packages("dplyr")
+if (!requireNamespace("readr", quietly = TRUE)) install.packages("readr")
+if (!requireNamespace("stringr", quietly = TRUE)) install.packages("stringr")
+if (!requireNamespace("DT", quietly = TRUE)) install.packages("DT")
+
+library(httr2)
+library(jsonlite)
+library(dplyr)
+library(readr)
+library(stringr)
+library(DT)
+
+if (file.exists("data/mp01/nyc_payroll_export.csv")) {
+  payroll_data <- read_csv("data/mp01/nyc_payroll_export.csv")
+} else {
+  stop("CSV file not found!")
+}
+
+payroll_data <- read_csv("data/mp01/nyc_payroll_export.csv")
+payroll_data <- payroll_data |> 
+  mutate(
+    agency_name = str_to_title(agency_name),
+    last_name  = str_to_title(last_name),
+    first_name = str_to_title(first_name),
+    work_location_borough = str_to_title(work_location_borough),
+    title_description = str_to_title(title_description),
+    leave_status_as_of_june_30 = str_to_title(leave_status_as_of_june_30)
+     ) |>
+  rename(
+    `Fiscal Year`    = fiscal_year,
+    `Agency Name`    = agency_name,
+    `First Name`     = first_name,
+    `Middle Initial` = mid_init,
+    `Last Name`      = last_name,
+    `Position`       = title_description,
+    `Base Salary`    = base_salary,
+    `Start Date`     = agency_start_date,
+    `Reg Hours`      = regular_hours,
+    `Overtime Hours` = ot_hours,
+    `Additional Pay` = total_other_pay,
+    `Payroll Number` = payroll_number,
+    `Work Location`  = work_location_borough,
+    `Leave Status`   = leave_status_as_of_june_30,
+    `Pay Basis`      = pay_basis,
+    `Gross Paid`     = regular_gross_paid,
+    `Overtime Paid`  = total_ot_paid
+  )
+
+payroll_data_filtered <- payroll_data |>
+  filter(`Gross Paid` >= 0) 
+
+eric_adams_data <- payroll_data_filtered |>
+    filter(`First Name` == "Eric", `Middle Initial` == "L", `Last Name` == "Adams") |>
+    mutate(`Total Salary` = `Gross Paid` + `Overtime Paid` + `Additional Pay`) |>
+  group_by(`Fiscal Year`) 
+
+eric_adams_career <- eric_adams_data |>
+  group_by(`Fiscal Year`, `Agency Name`) |>
+  summarise(
+    `Total Salary` = sum(`Total Salary`, na.rm = TRUE),
+    `Position` = paste(unique(`Position`), collapse = ","),
+    .groups = "drop"
+    ) 
+```
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+datatable(eric_adams_career, caption = 'Table 1: This table displays the career of NYC Mayor Eric L Adams.', options = list(pageLength = nrow(eric_adams_career), autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("Total Salary"), currency = "$", interval = 3, mark = ",") |>
+  formatStyle(c("Total Salary"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Agency Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Position"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Total Salary"), fontWeight = "bold", color = "#333333")
+
+```
+
+
+##### Conclusion for Table 1
+
+The Mayor's salary has consistently increased since he became Borough President of Brooklyn. As we analyze the data set, we will see that the adjustment of Mayor's salary every year is differs from non high ranking employees and high ranking officials in NYC's payroll.
+
+
+
+#### Point 2 -  Analysis of NYC Payroll Data for All NYC Employees
+
+The following findings^[Please note the following does not include data from the columns `regular_gross_paid`, `total_ot_paid` and `total_other_paid`] below serve to help identify factors to consider as we conduct analysis for the purposes of recommending the best policy for adoption by the CATS Commissioners.
+
+
+
+##### **Position with the highest base rate of pay** 
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+payroll_data_comp <- payroll_data_filtered |>
+  mutate(
+    `Total Compensation` = case_when(
+      `Position` == "Mayor" ~ `Base Salary`,
+      !is.na(`Base Salary`) & `Base Salary` < 100  ~(`Base Salary`* (`Reg Hours` + `Overtime Hours` * 1.5)),
+      !is.na(`Base Salary`) & `Base Salary` >= 100 ~ ((`Base Salary`/260) * (`Reg Hours` / 7.5)),
+       TRUE ~ NA_real_
+     )
+   ) 
+highest_base_salary <- payroll_data_comp |>
+  group_by(`Position`) |>
+  summarise(
+  `Total Compensation` = mean(`Base Salary`, na.rm = TRUE)
+  ) |>
+  arrange(desc(`Total Compensation`)) |>
+  head(1)
+datatable(highest_base_salary, caption = 'Table 2: This table displays the position with the highest base salary in the NYC payroll data.', options = list(pageLength = 5, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("Total Compensation"), currency = "$", interval = 3, mark = ",") |>
+  formatStyle(c("Total Compensation"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Position"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Total Compensation"), fontWeight = "bold", color = "#333333")
+```
+
+
+The position with the highest base rate of pay is the **Chief Actuary** who has a per Annum salary of **$296,470.38**. The fixed salary of the Chief Actuary is comparable to the Mayor and other high ranking officials.
+
+
+
+##### ***Employee with the single highest city total payroll (year included)*** 
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+highest_payroll <- payroll_data_filtered |>
+  mutate(`Total Payroll` = `Base Salary` + `Overtime Paid`) |>
+  slice_max(order_by = `Total Payroll`, n = 1, with_ties = FALSE)
+
+datatable(highest_payroll, caption = 'Table 3: This table displays the individual with the highest total payroll in the NYC payroll data.', options = list(pageLength = 5, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("Total Payroll"), currency = "$", interval = 3, mark = ",") |>
+  formatStyle(c("Total Payroll"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Agency Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Position"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Total Payroll"), fontWeight = "bold", color = "#333333")
+```
+
+
+The government employee with the single highest total payroll is Chief Marine Engineer, Pavel Kotelevich. Pavel's total payroll is $697,052.01. This amount includes his *base salary per annum* and *overtime wages paid*. Since Pavel had **over 1000 hours of overtime hours**, he has received substantial overtime wages despite making a fixed salary of 169,520 dollars in fiscal year 2024. 
+
+
+
+##### ***Employee with the highest overtime hours***
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+most_overtime_hours <- payroll_data_filtered |>
+group_by(`Fiscal Year`,`Agency Name` , `Position`, `First Name`, `Last Name`) |>
+  summarise(
+  `Total Overtime` = max(`Overtime Hours`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  slice_max(order_by = `Total Overtime`, n = 6, with_ties = TRUE)
+datatable(most_overtime_hours, caption = 'Table 4: This table displays the individuals with the most overtime hours in the NYC payroll data.', options = list(pageLength = 5, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatStyle(c("Total Overtime"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Agency Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("First Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Last Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Position"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Total Overtime"), fontWeight = "bold", color = "#333333")
+```
+
+
+The Department of Correction has the most overtime hours recorded compared to any other agency. The results show that James Inernicola has one of the highest overtime hours recorded, 3692.90 hours. We can assume that the Department of Correction allocates a part of it's budget to overtime wages for the police force. *Therefore, the city's payroll must also allocate a part of it's budget for overtime expenses in large department's like the Department of Correction.*
+
+
+##### ***Agency with the highest average total annual payroll***
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+avg_total_payroll <- payroll_data_comp |>
+  mutate(`Total Annual Payroll` = `Base Salary` + `Overtime Paid`) |>
+  group_by(`Fiscal Year`, `Agency Name`) |>
+  summarise(
+    `Total Annual Payroll` = mean(`Total Annual Payroll`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  arrange(desc(`Total Annual Payroll`)) |>
+  slice_max(order_by = `Total Annual Payroll`, n = 10, with_ties = FALSE)
+
+datatable(avg_total_payroll, caption = 'Table 5: This table displays the agency with the highest average total annual payroll in the NYC payroll data.', options = list(pageLength = 10, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("Total Annual Payroll"), currency = "$", interval = 3, mark = ",") |>
+  formatStyle(c("Total Annual Payroll"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Agency Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Total Annual Payroll"), fontWeight = "bold", color = "#333333")
+```
+
+
+The Districting Commission has on record one of the highest average annual payroll recorded at $158,699.67 in 2014. This result conveys how the agency allocates this amount each year in their budget to pay each employee wages. 
+
+##### ***Agency with the most employees on payroll in each year***
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+agency_employee_count <- payroll_data_comp |>
+ group_by(`Fiscal Year`, `Agency Name`) |>
+ summarise(
+ `Employee Count` = n(), .groups = "drop"
+ ) |>
+ arrange(`Fiscal Year`, desc(`Employee Count`)) |> 
+ group_by(`Fiscal Year`) |>
+ slice_head(n = 1)
+
+datatable(agency_employee_count, caption = 'Table 6: This table displays the agency with the most employees on payroll in the NYC payroll data.', options = list(pageLength = 5, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatStyle(c("Employee Count"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Agency Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Employee Count"), fontWeight = "bold", color = "#333333")
+```
+
+
+The Department of ED Pedagogical has the highest recorded number of employees on payroll of over 100,000 employees employed per year. The city payroll must allocate a part of it's budget to the wages and hiring expenses of this agency and other agencies.
+
+
+##### ***Agency with the highest average overtime usage (compared to regular hours)***
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+highest_reg_hours <- payroll_data_filtered |>
+  group_by(`Agency Name`) |>
+  summarise(
+    `Average Reg Hours` = mean(`Reg Hours`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  slice_max(order_by = `Average Reg Hours`, n = 1, with_ties = FALSE)
+
+highest_overtime_agency <- payroll_data_filtered |>
+  group_by(`Agency Name`) |>
+  summarise(
+    `Average Overtime Hours` = mean(`Overtime Hours`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  slice_max(order_by = `Average Overtime Hours`, n = 1, with_ties = FALSE)
+
+combine_data <- highest_reg_hours |>
+  left_join(highest_overtime_agency, by = "Agency Name") 
+
+datatable(combine_data, caption = 'Table 7: This table displays the agency with the highest average regular and overtime hours in the NYC payroll data.', options = list(pageLength = 5, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatRound(c("Average Reg Hours", "Average Overtime Hours"), digits = 2) |>
+  formatStyle(c("Average Reg Hours"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Average Overtime Hours"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Agency Name"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Average Reg Hours"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Average Overtime Hours"), fontWeight = "bold", color = "#333333")
+```
+
+
+The Fire Department has the largest average overtime usage compared to the average regular hours recorded at 346.40 hours. Similar to the Department of Correction, the Fire Department has to allocate a part of it's budget to overtime wages of it's firefighter workforce.
+
+
+##### ***Average salary of employees who work outside the five boroughs***
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+salary_non_nyc <- payroll_data_comp |>
+  filter(`Work Location` != "Brooklyn", `Work Location` != "Bronx", `Work Location` != "Queen", `Work Location` != "Manhattan", `Work Location` != "Staten Island") |>
+  group_by(`Work Location`) |>
+  summarise(
+  `Average Base Salary` = mean(`Base Salary`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  arrange(desc(`Average Base Salary`))
+
+datatable(salary_non_nyc, caption = 'Table 8: This table displays the average base salary of employees with work locations outside of NYC in the NYC payroll data.', options = list(pageLength = 5, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("Average Base Salary"), currency = "$", interval = 3, mark = ",") |>
+  formatStyle(c("Average Base Salary"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Work Location"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Average Base Salary"), fontWeight = "bold", color = "#333333")
+```
+
+
+The average salary of employees that work outside of the 5 NYC boroughs is little over $100,000.00. This means that the taxpayer monies that fund these jobs are not being spent in the NYC market or economy.
+
+##### ***New York City's aggregate payroll over the past 10 years***
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+library(tidyr)
+aggregate_growth <- payroll_data_comp |>
+  filter(`Fiscal Year` %in% c("2014", "2024")) |>
+  group_by(`Fiscal Year`) |>
+  summarise(
+    `Aggregate Payroll` = sum(`Base Salary`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  pivot_wider(names_from = `Fiscal Year`, values_from = `Aggregate Payroll`)  |>
+  mutate(
+    `Growth Rate` = (`2024` - `2014`) / `2014`
+ ) 
+
+datatable(aggregate_growth, caption = 'Table 9: This table displays the aggregate payroll growth from 2014 to 2024 in the NYC payroll data.', options = list(pageLength = 5, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("2014", "2024"), currency = "$", interval = 3, mark = ",") |>
+  formatPercentage(c("Growth Rate"), digits = 2) |>
+  formatStyle(c("Growth Rate"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Growth Rate"), fontWeight = "bold", color = "#333333")
+```
+
+
+The growth rate from 2014 to 2024 is approximately **46.86%**.
+This is the percentage increase in the total payroll from 2014 to 2024, a *10 year span*. This means that NYC's aggregate wage increases are on track to meet 50% in the coming years
+
+
+## Policy 1 - Capping Salaries at Mayoral Level
+
+
+*The data set contains information on the different tiers of income for employees (i.e. per annum, per hour, etc.) The main group of employee with a fixed salary (per Annum) are high ranking officials including the Mayor Eric L Adams. The following findings showcase the results of capping all employee wages at the Mayoral Level.*
+
+
+##### Total Mayoral Pay For each Fiscal Year
+
+*The following table displays the salary of the Mayor Eric L Adams from 2014 to 2024.*
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+total_pay_mayor <- payroll_data_comp |>
+  mutate(`Total Mayor Pay` = `Base Salary` + `Overtime Paid`) |>
+  group_by(`Fiscal Year`) |>
+  filter(`Position` == "Mayor") |>
+  summarise(
+    `Total Mayor Pay` = sum(`Total Mayor Pay`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  arrange(`Fiscal Year`)
+datatable(total_pay_mayor, options = list(pageLength = 5, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("Total Mayor Pay"), currency = "$", interval = 3, mark = ",") |>
+  formatStyle(c("Total Mayor Pay"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Total Mayor Pay"), fontWeight = "bold", color = "#333333")
+```
+
+##### Total Payroll of Employees Paid More than the Mayor
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+
+total_pay_mayor <- payroll_data_comp |>
+  mutate(`Total Mayor Pay` = `Base Salary` + `Overtime Paid`) |>
+  group_by(`Fiscal Year`) |>
+  filter(`Position` == "Mayor") |>
+  summarise(
+    `Total Mayor Pay` = sum(`Total Mayor Pay`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  arrange(`Fiscal Year`)
+
+more_than_mayor <- payroll_data_comp |>
+  mutate(`Total Pay` = `Base Salary` + `Overtime Paid`) |>
+  filter(`Position` != "Mayor") |>
+  left_join(total_pay_mayor, by = "Fiscal Year") |>
+  filter(`Total Pay` >= `Total Mayor Pay`) |>
+  group_by(`Fiscal Year`, `First Name`, `Middle Initial`, `Last Name`) |>
+  summarise(
+    `Total Pay` = sum(`Total Pay`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  arrange(`Fiscal Year`, desc(`Total Pay`)) |>
+  group_by(`Fiscal Year`) |> 
+  slice_head(n = 10)
+
+datatable(more_than_mayor, caption = 'Table 10: This table displays the employees who made more than the Mayor in the NYC payroll data.', options = list(pageLength = 10, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("Total Pay"), currency = "$", interval = 3, mark = ",") |>
+  formatStyle(c("Total Pay"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("First Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Middle Initial"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Last Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Total Pay"), fontWeight = "bold", color = "#333333")
+
+```
+
+
+Based on the data displayed in the table, there are over *90 employees* who make more than the Mayor Eric L Adams each fiscal year. This table allows us to conclude that fixed salaries are not based on title in the NYC government. Therefore, capping the salary at the mayoral level may be feasible given that the position holds no weight in payroll.
+
+
+#### Total Savings if the Mayor’s Salary is the Limit
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+total_savings <- payroll_data_comp |>
+  filter(`Position` != "Mayor") |>
+  left_join(total_pay_mayor, by = "Fiscal Year") |>
+  group_by(`Fiscal Year`) |>
+  summarise(
+  `Total Savings` = max(`Base Salary`, na.rm = TRUE) - unique(`Total Mayor Pay`), .groups = "drop"
+  ) |>
+  arrange(`Fiscal Year`)
+
+datatable(total_savings, caption = 'Table 11: This table displays the total savings if the Mayor\'s salary was the maximum salary for each fiscal year in the NYC payroll data.', options = list(pageLength = 10, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("Total Savings"), currency = "$", interval = 3, mark = ",") |>
+  formatStyle(c("Total Savings"), backgroundColor = "#f2f2f2") |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Total Savings"), fontWeight = "bold", color = "#333333")
+```
+
+According to the table above, the total savings generated each year by capping employee salary based on the Mayor's Salary does not exceed $200,000.
+
+
+#### Agencies and positions that would be affected the most by this policy
+
+
+*The following table displays only the top earning employees of each fiscal year who would be affected.*
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+employees_more_than_mayor <- payroll_data_comp |>
+  mutate(`Total Employee Pay` = `Base Salary` + `Overtime Paid`) |>
+  filter(`Position` != "Mayor") |>
+  left_join(total_pay_mayor, by = "Fiscal Year") |>
+  filter(`Total Employee Pay` >= `Total Mayor Pay`) |>
+  select(`Agency Name`, `Position`, `Fiscal Year`, `Total Employee Pay`, `Total Mayor Pay`) |>
+  arrange(`Fiscal Year`, desc(`Total Employee Pay`))|>
+  group_by(`Fiscal Year`) |>
+  slice_head(n = 10)  # Select top 20 employees
+
+datatable(employees_more_than_mayor, caption = 'Table 12: This table displays the employees who made more than the Mayor in the NYC payroll data.', options = list(pageLength = 15, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Agency Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Position"), fontWeight = "bold", color = "#333333")
+```
+
+
+According to this table above, over 90 employees will be affected by the adoption of this policy.^[In the full length display close to *1000 employees* would be affected by this salary cap.] The Commission may need to consider the affects this would have on the employees who believe their salary is correct for the workload and position they have. 
+
+
+#### Recommendation to the CATS commissioners on whether this policy should be adopted.
+
+
+Based on findings above, we do not recommend the CATS Commissioners to adopt this policy because the total savings generated by capping employee salary based on the Mayor's Salary does not exceed $200,000 regardless of the year. In addition, the city would lose **102,793.00** if this policy was enacted in 2022. This policy would affected a large part of the city workforce, which may cause turnover rates to skyrocket.
+
+
+
+## Policy 2 - Increasing Staffing to Reduce Overtime
+
+
+*The data set showcases how overtime accounts for a large portion of city payroll. The following analyzes the potential upside of increasing staffing to reduce the effects of overtime expenses.*
+
+
+#### Total Overtime Hours and Pay by Agency and Job Title
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+total_overtime_hours <- payroll_data_comp |>
+  filter(`Overtime Hours` != 0) |>
+  group_by(`Agency Name`, `Position`, `Fiscal Year`) |>
+  summarise(
+  `Total Overtime Hours` = sum(`Overtime Hours`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  arrange(desc(`Fiscal Year`), desc(`Total Overtime Hours`))
+
+datatable(total_overtime_hours, caption = 'Table 13: This table displays the total overtime hours worked for each agency and position in the NYC payroll data.', options = list(pageLength = 15, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Agency Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Position"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Total Overtime Hours"), fontWeight = "bold", color = "#333333")
+```
+
+
+According to this table, there are over 27,000 positions where overtime hours are logged in each agency every fiscal year. The agencies may benefit from a reduction in the workforce due to the millions spent every year to fund the overtime of these positions.
+
+
+#### Correlation between increase in employees hired and overtime hours
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+overtime_employee_data <- payroll_data_comp |>
+  group_by(`Fiscal Year`) |>
+  summarise(
+    `Total Overtime Hours` = sum(`Overtime Hours`, na.rm = TRUE),
+    `Employee Count` = n(),  # Total number of employees
+    .groups = "drop"
+  )
+library(ggplot2)
+library(scales)
+library(tidyr)
+
+overtime_employee_data_long <- overtime_employee_data |>
+  pivot_longer(cols = c(`Total Overtime Hours`, `Employee Count`), 
+               names_to = "Metric", 
+               values_to = "Value")
+
+ggplot(overtime_employee_data_long, aes(x = `Fiscal Year`, y = Value, color = Metric)) +
+  geom_line() +
+  scale_y_continuous(labels = label_comma()) +
+  labs(title = "Overtime Hours and Employee Count by Fiscal Year",
+       x = "Fiscal Year",
+       y = "Count",
+       color = "Metric") +
+  facet_wrap(~ Metric, scales = "free_y") +  # Separate the plots and allow for different y-axis scales
+  theme_minimal()
+# 
+correlation <- cor(overtime_employee_data$`Employee Count`, overtime_employee_data$`Total Overtime Hours`)
+```
+
+
+The correlation between employee count and overtime hours is 0.6179. Therefore, as employee hiring increases the amount of overtime hours will also increase. This suggests that hiring more employees **could** increase overtime expenses.
+
+
+#### Recommendation to the CATS commissioners on whether this policy should be adopted.
+
+Based on the findings above, I recommend the CATS commissioner to adopt this policy with caution. I support this policy due to the millions that would be saved over time from the increase in staff.
+
+## Policy 3: My Policy Proposal - Combining A Decrease in Hourly Employees and Policy 2 
+
+
+#### Conclusion based on full analysis of dataset:
+
+
+Based on my analysis of the data set, the City of New York spends most of it's money on overtime expenses of the employees. The City should hire more employees to reduce the overtime hours, but also decrease the amount of hourly employees they hire. This has two advantages for the City Payroll. First, it will allow the workload to be spread out amount the full time employees with a fixed per Annual salary. Second, the City will save money in the long term because it will not have a large part time workforce to pay overtime wages.
+
+##### Table of Total Savings from Policy 3
+
+
+*The following table generates total savings (per Agency and Per fiscal year) from the reduction of overtime expenses and from the reduction in the number of hourly employees.*
+
+
+```{r}
+#| code-fold: true
+#| code-summary: "Code"
+total_savings_clean <- payroll_data_comp |>
+  filter(!grepl("per Hour", `Pay Basis`)) |>
+  mutate(`Overtime Paid` = ifelse(grepl("per Hour", `Pay Basis`), 0, `Overtime Paid`)) |>
+  mutate(`Total Savings` = `Overtime Hours` * (`Base Salary` - `Overtime Paid`)) |>
+  filter(`Total Savings` != 0) |>
+  group_by(`Fiscal Year`, `Agency Name`) |>
+  summarise(
+    `Total Savings` = max(`Total Savings`, na.rm = TRUE), .groups = "drop"
+  ) |>
+  arrange(`Fiscal Year`)
+View(total_savings_clean)
+
+datatable(total_savings_clean, caption = 'Table 15: This table displays the total savings if overtime paid were reduced and the number of per hour employees was reduced.', options = list(pageLength = 15, autoWidth = TRUE),
+            filter = "top", 
+            extensions = c("Buttons", "Scroller"),
+            class = "display",
+            rownames = FALSE) |>
+  formatCurrency(c("Total Savings"), currency = "$", interval = 3, mark = ",") |>
+  formatStyle(c("Fiscal Year"), fontWeight = "bold", color = "#333333") |>
+  formatStyle(c("Agency Name"), fontWeight = "bold", color = "#333333")|>
+  formatStyle(c("Total Savings"), fontWeight = "bold", color = "#333333")
+```
+
+#### Recommendation to the CATS commissioners on whether this policy should be adopted.
+
+From the table above, I can conclude that millions of dollars would be saved in each agency per fiscal year if this policy was adopted.
+
+```{r}
+#| include: false
+1+1
+```
+--------------
+Last Updated: `r format(Sys.time(), "%A %m %d, %Y at %H:%M%p")`
+
+
+
+
