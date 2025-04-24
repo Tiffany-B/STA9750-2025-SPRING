@@ -1,0 +1,2482 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Stephanie Jean Baptiste">
+
+<title>Mini Project 3 – STA 9750 Submission Material</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d34cad7c1ff812d83d3cdf4c9f78cbb4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STA 9750 Submission Material</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mini Project 3</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stephanie Jean Baptiste </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="creating-the-ultimate-playlist" class="level1">
+<h1>Creating the Ultimate Playlist</h1>
+<blockquote class="blockquote">
+<h5 id="the-ultimate-playlist-echoes-of-the-boulevard" class="anchored">The Ultimate Playlist: Echoes of the Boulevard</h5>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong><em>Echoes of the Boulevard</em></strong> is a collection of 12 songs that expresses the emotional journey of a person going thorugh the motions of life as waves of ups and down. It bridges the nostalgic notes of <code>Coldplay</code> with the rebellious attitudes of <code>Green Day</code>. It’s your go to playlist for when you are staring out the window thinking about life, or for late night walks on a boulevard. In this playlist, you will find ballads of longing, sing-along anthems, powerful chords and melodic piano notes… Most importantly, you will find that you identify with the songs on a personal level.</p>
+</blockquote>
+<p><br><br></p>
+<section id="design-principles" class="level2">
+<h2 class="anchored" data-anchor-id="design-principles">Design Principles</h2>
+<p><br><br></p>
+<section id="data-driven-discovery" class="level3">
+<h3 class="anchored" data-anchor-id="data-driven-discovery">Data Driven Discovery</h3>
+<blockquote class="blockquote">
+<p>Using a statistics-based approach, we explored trends in popularity, danceability, energy, valence, track length, and more. By leveraging summary statistics, correlations, and visualizations, we identified key patterns that guided the creation of our desired playlist. The result is a carefully curated selection of tracks that authentically capture the vibe we aimed to achieve.</p>
+</blockquote>
+<p><br><br></p>
+</section>
+<section id="heuristic-based-selection" class="level3">
+<h3 class="anchored" data-anchor-id="heuristic-based-selection">Heuristic-Based Selection</h3>
+<blockquote class="blockquote">
+<p>By employing a heuristic-based approach, the selection of songs for the playlist became more precise and intentional. The heuristics used include several key factors: songs that frequently co-occur in playlists alongside anchor tracks, tracks with similar key and tempo, selections from the same artists, songs with acousticness and danceability values within a defined range, and finally, tracks with a comparable valence (emotional tone). By integrating multiple heuristics, this approach effectively curates a playlist where musical and emotional cohesion is maintained, creating a multi-faceted filtering system that enhances meaningful discovery.</p>
+</blockquote>
+<p><br><br></p>
+</section>
+<section id="sonic-cohesion" class="level3">
+<h3 class="anchored" data-anchor-id="sonic-cohesion">Sonic Cohesion</h3>
+<blockquote class="blockquote">
+<p>By prioritizing sonic cohesion, the playlist achieves a well-curated feel. Tracks are ordered based on valence (mood) and energy, ensuring a consistent emotional and rhythmic experience throughout. This approach maintains uniformity in both mood and tempo, enhancing the overall listening journey. Additionally, the visualization of the playlist serves as a validation of its progression, effectively illustrating the evolution of energy, danceability, and emotional tone.</p>
+</blockquote>
+<p><br><br></p>
+</section>
+</section>
+<section id="data-import-and-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-import-and-cleaning">Data Import and Cleaning</h2>
+<blockquote class="blockquote">
+<p>For this project, we will examine the key factors that influence a song’s popularity in playlists. Our analysis will utilize the Spotify Million Playlist Dataset, a comprehensive collection of playlists and their associated tracks. Additionally, we will integrate a dataset containing Spotify songs and their audio features to enhance our insights. The table below presents the results of the data import and cleaning process, laying the groundwork for a thorough exploration of song popularity dynamics.</p>
+</blockquote>
+<p><br><br></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ensure_package <span class="ot">&lt;-</span> <span class="cf">function</span>(pkg) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(pkg, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(pkg)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(pkg, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the necessary packages are installed and loaded</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"stringr"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"tidyr"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"httr2"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"rvest"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"datasets"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"purrr"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"DT"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"jsonlite"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"httr"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ensure_package</span>(<span class="st">"knitr"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#Here we will load the song data from a CSV file (posted by Github User gabminamendez) </span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>load_songs <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define file and directory paths</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  directory <span class="ot">&lt;-</span> <span class="st">"data/mp03"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  file_url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/gabminamedez/spotify-data/refs/heads/master/data.csv"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  file_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(directory, <span class="st">"data.csv"</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create the directory if it doesn't exist</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(directory)) {</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dir.create</span>(directory, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Download the file if it doesn't already exist</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file_path)) {</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">download.file</span>(file_url, file_path)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"File downloaded: "</span>, file_path)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"File already exists: "</span>, file_path)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Read the CSV file into a data frame</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  song_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(file_path, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Process the artists column</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  clean_artist_string <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(x, <span class="st">"</span><span class="sc">\\</span><span class="st">['"</span>, <span class="st">""</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_replace_all</span>(<span class="st">"'</span><span class="sc">\\</span><span class="st">]"</span>, <span class="st">""</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_replace_all</span>(<span class="st">" '"</span>, <span class="st">""</span>)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Process and return the data</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  processed_data <span class="ot">&lt;-</span> song_data <span class="sc">|&gt;</span> </span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">separate_longer_delim</span>(artists, <span class="st">","</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">artist =</span> <span class="fu">clean_artist_string</span>(artists)) <span class="sc">|&gt;</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>artists)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(processed_data)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Now actually call the function and save the result</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>song_data <span class="ot">&lt;-</span> <span class="fu">load_songs</span>()</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first few rows to confirm it worked</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co"># head(song_data)</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co"># names(song_data)</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Next, we will load the playlist data from a JSON file (posted by Github User DevinOgrady)</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function to load the playlist data from the repository, store them locally, and return a tidy data frame to read them into R in a standardized format.</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>load_playlist <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  p_directory <span class="ot">&lt;-</span> <span class="st">"data/mp03/playlists"</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  p_url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/DevinOgrady/spotify_million_playlist_dataset/master/data1/"</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  j_file_name <span class="ot">&lt;-</span> <span class="st">"mpd.slice.0-999.json"</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  file_path_1 <span class="ot">&lt;-</span> <span class="fu">file.path</span>(p_directory, j_file_name)</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  file_url_1 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(p_url, j_file_name)</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(p_directory)) {</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dir.create</span>(p_directory, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(file_path_1)) {</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">download.file</span>(file_url_1, <span class="at">destfile =</span> file_path_1, <span class="at">method =</span> <span class="st">"auto"</span>)</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>  playlist_data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(file_path_1, <span class="at">simplifyVector =</span> <span class="cn">FALSE</span>)  </span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="st">"playlists"</span> <span class="sc">%in%</span> <span class="fu">names</span>(playlist_data)) <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>  playlist_tracks <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(playlist_data<span class="sc">$</span>playlists, <span class="cf">function</span>(pl) {</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.list</span>(pl)) <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span>(<span class="st">"tracks"</span> <span class="sc">%in%</span> <span class="fu">names</span>(pl))) <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.list</span>(pl<span class="sc">$</span>tracks) <span class="sc">||</span> <span class="fu">length</span>(pl<span class="sc">$</span>tracks) <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    tidy_data <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>      <span class="fu">bind_rows</span>(pl<span class="sc">$</span>tracks),</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>      <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">is.null</span>(tidy_data) <span class="sc">||</span> <span class="fu">nrow</span>(tidy_data) <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    tidy_data <span class="sc">|&gt;</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>        <span class="at">playlist_name      =</span> pl<span class="sc">$</span>name,</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>        <span class="at">playlist_id        =</span> pl<span class="sc">$</span>pid,</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>        <span class="at">playlist_followers =</span> pl<span class="sc">$</span>num_followers,</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>        <span class="at">playlist_position  =</span> <span class="fu">row_number</span>()</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">|&gt;</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>        playlist_name,</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>        playlist_id,</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>        playlist_followers,</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>        playlist_position,</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>        track_name,</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>        track_uri,</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>        artist_name,</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>        artist_uri,</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>        album_name,</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>        album_uri,</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>        duration_ms</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">|&gt;</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rename</span>(</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>        <span class="at">track_id  =</span> track_uri,</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>        <span class="at">artist_id =</span> artist_uri,</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>        <span class="at">album_id  =</span> album_uri,</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>        <span class="at">duration  =</span> duration_ms</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(playlist_tracks)</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="co"># Load playlists data</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>playlists_data <span class="ot">&lt;-</span> <span class="fu">load_playlist</span>()</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse(playlists_data)</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="co"># head(playlists_data)</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="co"># View(playlists_data)</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="co">#‘Rectangle’ the Playlist Data</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="co">#Convert the playlist data into the rectangle format, which is a tidy data frame with one row per track in a playlist.</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>strip_spotify_prefix <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(stringr)</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_extract</span>(x, <span class="st">".*:.*:(.*)"</span>, <span class="at">group=</span><span class="dv">1</span>)</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>playlists_data <span class="ot">&lt;-</span> playlists_data <span class="sc">|&gt;</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>    <span class="at">track_id  =</span> <span class="fu">sapply</span>(track_id, strip_spotify_prefix),</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>    <span class="at">artist_id =</span> <span class="fu">sapply</span>(artist_id, strip_spotify_prefix),</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>    <span class="at">album_id  =</span> <span class="fu">sapply</span>(album_id, strip_spotify_prefix)</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="co"># View(playlists_data)</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="co">#create a kabble of the first 10 rows of the playlist data</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(playlists_data[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 17%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 18%">
+<col style="width: 9%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">playlist_name</th>
+<th style="text-align: right;">playlist_id</th>
+<th style="text-align: right;">playlist_followers</th>
+<th style="text-align: right;">playlist_position</th>
+<th style="text-align: left;">track_name</th>
+<th style="text-align: left;">track_id</th>
+<th style="text-align: left;">artist_name</th>
+<th style="text-align: left;">artist_id</th>
+<th style="text-align: left;">album_name</th>
+<th style="text-align: left;">album_id</th>
+<th style="text-align: right;">duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Lose Control (feat. Ciara &amp; Fat Man Scoop)</td>
+<td style="text-align: left;">0UaMYEvWZi0ZqiDOoHU3YI</td>
+<td style="text-align: left;">Missy Elliott</td>
+<td style="text-align: left;">2wIVse2owClT7go1WT98tk</td>
+<td style="text-align: left;">The Cookbook</td>
+<td style="text-align: left;">6vV5UrXcfyQD1wu4Qo2I9K</td>
+<td style="text-align: right;">226863</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Toxic</td>
+<td style="text-align: left;">6I9VzXrHxO9rA9A5euc8Ak</td>
+<td style="text-align: left;">Britney Spears</td>
+<td style="text-align: left;">26dSoYclwsYLMAKD3tpOr4</td>
+<td style="text-align: left;">In The Zone</td>
+<td style="text-align: left;">0z7pVBGOD7HCIB7S8eLkLI</td>
+<td style="text-align: right;">198800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Crazy In Love</td>
+<td style="text-align: left;">0WqIKmW4BTrj3eJFmnCKMv</td>
+<td style="text-align: left;">Beyoncé</td>
+<td style="text-align: left;">6vWDO969PvNqNYHIOW5v0m</td>
+<td style="text-align: left;">Dangerously In Love (Alben für die Ewigkeit)</td>
+<td style="text-align: left;">25hVFAxTlDvXbx2X2QkUkE</td>
+<td style="text-align: right;">235933</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Rock Your Body</td>
+<td style="text-align: left;">1AWQoqb9bSvzTjaLralEkT</td>
+<td style="text-align: left;">Justin Timberlake</td>
+<td style="text-align: left;">31TPClRtHm23RisEBtV3X7</td>
+<td style="text-align: left;">Justified</td>
+<td style="text-align: left;">6QPkyl04rXwTGlGlcYaRoW</td>
+<td style="text-align: right;">267266</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">It Wasn’t Me</td>
+<td style="text-align: left;">1lzr43nnXAijIGYnCT8M8H</td>
+<td style="text-align: left;">Shaggy</td>
+<td style="text-align: left;">5EvFsr3kj42KNv97ZEnqij</td>
+<td style="text-align: left;">Hot Shot</td>
+<td style="text-align: left;">6NmFmPX56pcLBOFMhIiKvF</td>
+<td style="text-align: right;">227600</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Yeah!</td>
+<td style="text-align: left;">0XUfyU2QviPAs6bxSpXYG4</td>
+<td style="text-align: left;">Usher</td>
+<td style="text-align: left;">23zg3TcAtWQy7J6upgbUnj</td>
+<td style="text-align: left;">Confessions</td>
+<td style="text-align: left;">0vO0b1AvY49CPQyVisJLj0</td>
+<td style="text-align: right;">250373</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">My Boo</td>
+<td style="text-align: left;">68vgtRHr7iZHpzGpon6Jlo</td>
+<td style="text-align: left;">Usher</td>
+<td style="text-align: left;">23zg3TcAtWQy7J6upgbUnj</td>
+<td style="text-align: left;">Confessions</td>
+<td style="text-align: left;">1RM6MGv6bcl6NrAG8PGoZk</td>
+<td style="text-align: right;">223440</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Buttons</td>
+<td style="text-align: left;">3BxWKCI06eQ5Od8TY2JBeA</td>
+<td style="text-align: left;">The Pussycat Dolls</td>
+<td style="text-align: left;">6wPhSqRtPu1UhRCDX5yaDJ</td>
+<td style="text-align: left;">PCD</td>
+<td style="text-align: left;">5x8e8UcCeOgrOzSnDGuPye</td>
+<td style="text-align: right;">225560</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">Say My Name</td>
+<td style="text-align: left;">7H6ev70Weq6DdpZyyTmUXk</td>
+<td style="text-align: left;">Destiny’s Child</td>
+<td style="text-align: left;">1Y8cdNmUJH7yBTd9yOvr5i</td>
+<td style="text-align: left;">The Writing’s On The Wall</td>
+<td style="text-align: left;">283NWqNsCA9GwVHrJk59CG</td>
+<td style="text-align: right;">271333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Throwbacks</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">Hey Ya! - Radio Mix / Club Mix</td>
+<td style="text-align: left;">2PpruBYCo4H7WOBJ7Q2EwM</td>
+<td style="text-align: left;">OutKast</td>
+<td style="text-align: left;">1G9G7WwrXka3Z1r7aIDjI7</td>
+<td style="text-align: left;">Speakerboxxx/The Love Below</td>
+<td style="text-align: left;">1UsmQ3bpJTyK6ygoOOjG1r</td>
+<td style="text-align: right;">235213</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="initial-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="initial-exploration">Initial Exploration</h2>
+<blockquote class="blockquote">
+<p>With a imported and cleaned dataset, we can now begin to explore the data.</p>
+</blockquote>
+<ol type="1">
+<li>How many distinct tracks and artists are represented in the playlist data?</li>
+</ol>
+<p>There are <code>9,745 distinct artists</code> and <code>34,443 distinct tracks</code> in the playlist data.The following table shows the distinct artists in the playlist.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Count the number of distinct artists and tracks</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>distinct_artists <span class="ot">&lt;-</span> playlists_data <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(artist_id) <span class="sc">|&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"Number of Artists"</span> <span class="ot">=</span> <span class="fu">n</span>())</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#print(distinct_artists)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#create a kable of distinct artists</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(distinct_artists)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Number of Artists</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">9754</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br> The following table shows the distinct tracks in the playlist data set.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Count the number of distinct tracks</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>distinct_tracks <span class="ot">&lt;-</span> playlists_data <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(track_id) <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">"Number of Tracks"</span> <span class="ot">=</span> <span class="fu">n</span>())</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print(distinct_tracks)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#create a kable of distinct tracks</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(distinct_tracks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Number of Tracks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">34443</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+<ol start="2" type="1">
+<li><p>What are the 5 most popular tracks in the playlist data?</p>
+<p>The most popular track is <code>Closer</code> which made <code>75 appearances</code> in the playlist data.</p></li>
+</ol>
+<p><br><br> The following table shows the 5 most popular tracks in the playlist data.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the most popular tracks</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>most_popular_tracks <span class="ot">&lt;-</span> playlists_data <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(track_name) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">`</span><span class="at">Number of Appearances</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">Number of Appearances</span><span class="st">`</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Name of Track"</span> <span class="ot">=</span> track_name) </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#print(most_popular_tracks)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#View(most_popular_tracks)</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable of the most popular tracks</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(most_popular_tracks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name of Track</th>
+<th style="text-align: right;">Number of Appearances</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Closer</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">One Dance</td>
+<td style="text-align: right;">55</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HUMBLE.</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ride</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Broccoli (feat. Lil Yachty)</td>
+<td style="text-align: right;">50</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+<ol start="3" type="1">
+<li><p>What is the most popular track in the playlist data that <strong><em>does not</em></strong> have a corresponding entry in the song characteristics data?</p>
+<p>The most popular track that does not have a corresponding entry in the song characteristics data is <code>One Dance</code> by <code>Drake</code>. It appears 55 times in the playlist data and is shockingly not in the song characteristics data set for it’s danceability.</p></li>
+</ol>
+<p><br><br></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#join data frames by track id column</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>song_data <span class="ot">&lt;-</span> song_data <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"track_id"</span> <span class="ot">=</span> id)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Find the most popular track that has no entry in song  data</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>no_match_tracks <span class="ot">&lt;-</span> playlists_data <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(song_data, <span class="at">by =</span> <span class="st">"track_id"</span>) </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>most_pop_nochar <span class="ot">&lt;-</span> (</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  no_match_tracks <span class="sc">|&gt;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(<span class="st">`</span><span class="at">Name of Track</span><span class="st">`</span><span class="ot">=</span> track_name, <span class="st">`</span><span class="at">Artist</span><span class="st">`</span> <span class="ot">=</span> artist_name, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="st">`</span><span class="at">Number of Appearances</span><span class="st">`</span> <span class="ot">=</span> n)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#View(most_pop_nochar)</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable of the most popular track without characteristics</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(most_pop_nochar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name of Track</th>
+<th style="text-align: left;">Artist</th>
+<th style="text-align: right;">Number of Appearances</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">One Dance</td>
+<td style="text-align: left;">Drake</td>
+<td style="text-align: right;">55</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br> 4. According to the song characteristics data, what is the most “danceable” track? How often does it appear in a playlist?</p>
+<p>The most danceable track is <code>Tone-Loc's Funky Cold Medina</code>. It appears one time in the playlist titled <code>***VACATION***</code> and has a danceability score that is closest to 1.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use left join to combine the song data with the playlist data</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>join_data <span class="ot">&lt;-</span> song_data <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(playlists_data, <span class="at">by =</span> <span class="st">"track_id"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the most danceable track</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>most_danceable_track <span class="ot">&lt;-</span> join_data <span class="sc">|&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(track_name, artist_name, danceability, playlist_name) <span class="sc">|&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(danceability)) <span class="sc">|&gt;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Name of Track"</span> <span class="ot">=</span> track_name, <span class="st">"Artist"</span> <span class="ot">=</span> artist_name, <span class="st">"Danceability"</span> <span class="ot">=</span> danceability, <span class="st">"Playlist Name"</span> <span class="ot">=</span> playlist_name) <span class="sc">|&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#View(most_danceable_track)</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable table to display the most danceable track</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(most_danceable_track)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name of Track</th>
+<th style="text-align: left;">Artist</th>
+<th style="text-align: right;">Danceability</th>
+<th style="text-align: left;">Playlist Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Funky Cold Medina</td>
+<td style="text-align: left;">Tone-Loc</td>
+<td style="text-align: right;">0.988</td>
+<td style="text-align: left;">VACATION</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+<ol start="5" type="1">
+<li><p>Which playlist has the longest average track length?</p>
+<p>The playlist with the longest average track length is the <code>Classical</code> playlist. It’s average track length is approximately <code>411148.7 milliseconds or 7 minutes</code>.</p></li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the playlist with the longest average track length by grouping by playlist name </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and calculating the average track length (average of the duration column).</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Then, calculate the average length in minutes and sort the data frame in descending order.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#names(playlists_data)</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>longest_playlist <span class="ot">&lt;-</span> playlists_data <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(playlist_name) <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_length =</span> <span class="fu">mean</span>(duration)) <span class="sc">|&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">avg_length_min =</span> <span class="fu">round</span>(avg_length<span class="sc">/</span><span class="dv">60000</span>, <span class="dv">0</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_length)) <span class="sc">|&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Playlist Name"</span> <span class="ot">=</span> playlist_name, <span class="st">"Average Track Length (ms)"</span> <span class="ot">=</span> avg_length, <span class="st">"Average Track Length (min)"</span> <span class="ot">=</span> avg_length_min) <span class="sc">|&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#View(longest_playlist)</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable Extra table to display the playlist with the longest average track length</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(longest_playlist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Playlist Name</th>
+<th style="text-align: right;">Average Track Length (ms)</th>
+<th style="text-align: right;">Average Track Length (min)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">classical</td>
+<td style="text-align: right;">411148.7</td>
+<td style="text-align: right;">7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+<ol start="6" type="1">
+<li><p>What is the most popular playlist on Spotify?</p>
+<p>The most popular playlist on Spotify is <code>Tangled</code> with <code>1038 followers</code>.</p></li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Find the most popular playlist by grouping by playlist id and name and number of followers</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>most_popular_playlist <span class="ot">&lt;-</span> playlists_data <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(playlist_id, playlist_name, playlist_followers) <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(playlist_followers) <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Playlist ID"</span> <span class="ot">=</span> playlist_id,<span class="st">"Playlist Name"</span> <span class="ot">=</span> playlist_name, <span class="st">"Number of Followers"</span> <span class="ot">=</span> playlist_followers) </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#View(most_popular_playlist)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable table to display the most popular playlist</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(most_popular_playlist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Playlist ID</th>
+<th style="text-align: left;">Playlist Name</th>
+<th style="text-align: right;">Number of Followers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">765</td>
+<td style="text-align: left;">Tangled</td>
+<td style="text-align: right;">1038</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="identifying-the-ultimate-playlist" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-the-ultimate-playlist">Identifying the Ultimate Playlist</h2>
+<blockquote class="blockquote">
+<p>Next, we will conduct a more in-depth analysis of the most popular songs in the data set using INNER_JOIN to combine the song data with the playlist data set. We will use ggplot2 to visualize the data.</p>
+</blockquote>
+<ul>
+<li><p>Is the popularity column correlated with the number of playlist appearances? If so, to what degree?</p>
+<p>The following plot shows the correlation between the popularity and the number of playlist appearances. The correlation is positive, indicating that as the popularity increases, the number of playlist appearances also increases. The thresholds are set at <code>0-25 for Low</code> and <code>25-75 for Medium</code> and <code>75-100 for High</code> for mean popularity.</p></li>
+</ul>
+<p><br><br></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use inner join to combine the song data with the playlist data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>inner_join_data <span class="ot">&lt;-</span> song_data <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(playlists_data, <span class="at">by =</span> <span class="st">"track_id"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#using the inner join data find the correlation between the popularity and the number of playlist appearances</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>pop_correlation <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(track_id, track_name) <span class="sc">|&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">num_of_playlists =</span> <span class="fu">n</span>(),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_popularity =</span> <span class="fu">mean</span>(popularity),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>) </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#create a new column to categorize the popularity into groups (Low, Medium, High)</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>pop_correlation <span class="ot">&lt;-</span> pop_correlation <span class="sc">|&gt;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">popularity_group =</span> <span class="fu">cut</span>(</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    mean_popularity,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">100</span>),</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>),</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">include.lowest =</span> <span class="cn">TRUE</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#View(pop_correlation)</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a boxplot to display the popularity groups and their average playlist appearances</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pop_correlation, <span class="fu">aes</span>(<span class="at">x =</span> popularity_group, <span class="at">y =</span> num_of_playlists)) <span class="sc">+</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Playlist Appearances by Popularity Group"</span>,</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Popularity Group"</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Playlist Appearances"</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mp03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<ul>
+<li><p>In what year were the most popular songs released?.</p>
+<p>The most popular songs were released in <code>2017</code>. The highest average popularity of released songs was approximately <code>70.79</code>.</p></li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Using the inner join data and mean, we will filter the data to find the most popular songs released in a distinct year.</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pop_year <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_pop_songs =</span> <span class="fu">mean</span>(popularity, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_pop_songs))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#head(pop_year)</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>top_ten_pop_year <span class="ot">&lt;-</span> pop_year <span class="sc">|&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n=</span><span class="dv">10</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#create kable of the most popular songs released in a distinct year</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(top_ten_pop_year) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">mean_pop_songs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2017</td>
+<td style="text-align: right;">70.78972</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1976</td>
+<td style="text-align: right;">69.37306</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: right;">67.92846</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1983</td>
+<td style="text-align: right;">67.48315</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1982</td>
+<td style="text-align: right;">67.05217</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1980</td>
+<td style="text-align: right;">66.93662</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1981</td>
+<td style="text-align: right;">66.90955</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1979</td>
+<td style="text-align: right;">66.62581</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1967</td>
+<td style="text-align: right;">66.18493</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1973</td>
+<td style="text-align: right;">66.00585</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View(pop_year)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#visualize the average popularity of songs by year</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>pop_year_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pop_year, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_pop_songs)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"purple"</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">" Average Popularity of Released Songs by Year"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Popularity"</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pop_year_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mp03_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<ul>
+<li><p>In what year did danceability peak?</p>
+<p>The year with the highest average danceability is <code>2017</code>. The average danceability for that year is <code>0.71</code>.</p></li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the inner join data, we will filter the data to find the year with the highest average danceability.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>danceability_year <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_danceability =</span> <span class="fu">mean</span>(danceability, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(mean_danceability, <span class="at">n =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Average Danceability"</span> <span class="ot">=</span> mean_danceability)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#View(danceability_year)</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#create a kable of the year with the highest average danceability</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(danceability_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">year</th>
+<th style="text-align: right;">Average Danceability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2017</td>
+<td style="text-align: right;">0.7120776</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data to view all average danceability by year</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>danceability_year_all <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_danceability =</span> <span class="fu">mean</span>(danceability, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_danceability)) </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#visualize the average danceability of songs by year using a line plot</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>danceability_year_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(danceability_year_all, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_danceability)) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"deepskyblue"</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Danceability by Year"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Danceability"</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(danceability_year_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mp03_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<ul>
+<li><p>Which decade is most represented on user playlists?</p>
+<p>The decade with the most songs is the <code>2010s</code>. The number of 2010 songs on most users playlist at that time was <code>24,713</code>.</p></li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Mutate a column to calculate the decade using integer division</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pop_decade <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">decade =</span> (year <span class="sc">%/%</span> <span class="dv">10</span>) <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(decade) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">num_songs =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(num_songs)) <span class="sc">|&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"Number of Songs"</span> <span class="ot">=</span> num_songs, <span class="st">"Decade"</span> <span class="ot">=</span> decade)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#View(pop_decade)</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable Extra table to display the number of songs by decade</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(pop_decade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Decade</th>
+<th style="text-align: right;">Number of Songs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2010</td>
+<td style="text-align: right;">24713</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2000</td>
+<td style="text-align: right;">7291</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1990</td>
+<td style="text-align: right;">3069</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1980</td>
+<td style="text-align: right;">1573</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1970</td>
+<td style="text-align: right;">1501</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1960</td>
+<td style="text-align: right;">735</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1950</td>
+<td style="text-align: right;">93</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1940</td>
+<td style="text-align: right;">38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1930</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar plot to visualize the number of songs by decade</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>pop_decade_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pop_decade, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(<span class="st">`</span><span class="at">Decade</span><span class="st">`</span>), <span class="at">y =</span> <span class="st">`</span><span class="at">Number of Songs</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"purple"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Songs by Decade"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Decade"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Songs"</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(pop_decade_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mp03_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<ul>
+<li><p>Plotting the key frequency among songs</p>
+<p>The most common key is the <code>0 and 1 keys</code>. The frequency of those key is more than <code>1,000</code>.</p></li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the frequency of each key</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>key_frequency <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(key) <span class="sc">|&gt;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a polar plot...</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(key_frequency, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(key), <span class="at">y =</span> count)) <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"darkgreen"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="at">start =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Frequency of Musical Keys"</span>,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Key"</span>,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Count of Keys"</span>) <span class="sc">+</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mp03_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<ul>
+<li><p>What are the most popular track lengths?</p>
+<p>The following histogram shows the distribution of track lengths. The most common track length is between <code>2 and 4 minutes</code>.</p></li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#using the inner join data, we will filter the data to find the most popular track lengths (in minutes)</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>inner_join_data<span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">track_length =</span> duration<span class="sc">/</span> <span class="dv">60000</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#find the mean, median, min, and max track lengths</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>track_length_data <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_length =</span> <span class="fu">mean</span>(track_length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">median_length =</span> <span class="fu">median</span>(track_length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_length =</span> <span class="fu">min</span>(track_length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_length =</span> <span class="fu">max</span>(track_length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#View(track_length_data)</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a kable table to display the track length data</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(track_length_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">avg_length</th>
+<th style="text-align: right;">median_length</th>
+<th style="text-align: right;">min_length</th>
+<th style="text-align: right;">max_length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">3.974142</td>
+<td style="text-align: right;">3.833333</td>
+<td style="text-align: right;">0.0034333</td>
+<td style="text-align: right;">37.31222</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a histogram to visualize the distribution of track lengths</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(inner_join_data, <span class="fu">aes</span>(<span class="at">x =</span> track_length)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.6</span>, <span class="at">fill =</span> <span class="st">"cornflowerblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Most Popular Track Lengths"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Track Length (minutes)"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of Songs"</span>) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>),       <span class="co"># Only min and max go here</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)   <span class="co"># Add ticks every 2 minutes</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mp03_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="building-a-playlist-from-anchor-songs" class="level2">
+<h2 class="anchored" data-anchor-id="building-a-playlist-from-anchor-songs">Building a Playlist from Anchor Songs</h2>
+<blockquote class="blockquote">
+<p>Now that exploring the data is finished we can build the playlist! First, we picked two anchor songs from the playlist data set: <code>Wake Me Up When September Ends by Green Day</code> and <code>Fix You by Coldplay</code>. Then, we found songs that work well in the playlist using heuristics.</p>
+</blockquote>
+<section id="heuristics" class="level5">
+<h5 class="anchored" data-anchor-id="heuristics"><strong><em>Heuristics</em></strong></h5>
+<p><br><br></p>
+<ol type="1">
+<li>What other songs commonly appear on playlists along side this song?</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Using inner join data we will filter the data to find the anchor songs and their characteristics. </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>anchor_songs <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(track_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Wake Me Up When September Ends"</span>, <span class="st">"Fix You"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(track_id, track_name, artist_name, key, tempo, year, popularity, acousticness, danceability, valence, instrumentalness,energy)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#View(anchor_songs)</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#distinct(inner_join_data, track_name) |&gt; View()</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Heuristic 1: Songs that Commonly Appear with the Anchor Song</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#We'll find songs that appeared in the same playlists as the anchor song(s).</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>anchor_ids <span class="ot">&lt;-</span> anchor_songs<span class="sc">$</span>track_id</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>co_occurring_tracks <span class="ot">&lt;-</span> playlists_data <span class="sc">|&gt;</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(track_id <span class="sc">%in%</span> anchor_ids) <span class="sc">|&gt;</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(playlist_id) <span class="sc">|&gt;</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(playlists_data, <span class="at">by =</span> <span class="st">"playlist_id"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>track_id <span class="sc">%in%</span> anchor_ids) <span class="sc">|&gt;</span>  <span class="co"># exclude the anchor itself</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(track_name, artist_name, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">20</span>)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns for clarity</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>co_occurring_tracks <span class="ot">&lt;-</span> co_occurring_tracks <span class="sc">|&gt;</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Track Name</span><span class="st">`</span> <span class="ot">=</span> track_name,</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Artist Name</span><span class="st">`</span> <span class="ot">=</span> artist_name,</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Number of Playlists</span><span class="st">`</span> <span class="ot">=</span> n</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="co">#View(co_occurring_tracks)</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>top_ten_co_ocurring <span class="ot">&lt;-</span> co_occurring_tracks <span class="sc">|&gt;</span></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable table to display the similar co-occuring tracks</span></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(top_ten_co_ocurring) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Track Name</th>
+<th style="text-align: left;">Artist Name</th>
+<th style="text-align: right;">Number of Playlists</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Chasing Cars</td>
+<td style="text-align: left;">Snow Patrol</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Drops of Jupiter</td>
+<td style="text-align: left;">Train</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I Write Sins Not Tragedies</td>
+<td style="text-align: left;">Panic! At The Disco</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yellow</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">21 Guns</td>
+<td style="text-align: left;">Green Day</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mr.&nbsp;Brightside</td>
+<td style="text-align: left;">The Killers</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">She Will Be Loved - Radio Mix</td>
+<td style="text-align: left;">Maroon 5</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Scientist</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Holiday/Boulevard Of Broken Dreams</td>
+<td style="text-align: left;">Green Day</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">How to Save a Life</td>
+<td style="text-align: left;">The Fray</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+<ol start="2" type="1">
+<li>What other songs are in the same key and have a similar tempo?</li>
+</ol>
+<p>The following table shows the songs that are in the same key and have a similar tempo to the anchor songs. The tempo is between 5 BPM of the anchor songs.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">################</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Heuristic 2: Same Key + Similar Tempo (±5 BPM)</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>similar_key_tempo <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    key <span class="sc">%in%</span> anchor_songs<span class="sc">$</span>key,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_lgl</span>(tempo, <span class="sc">~</span> <span class="fu">any</span>(<span class="fu">abs</span>(.x <span class="sc">-</span> anchor_songs<span class="sc">$</span>tempo) <span class="sc">&lt;=</span> <span class="dv">5</span>))</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(track_id, track_name, artist_name, tempo, key)<span class="sc">|&gt;</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(tempo, <span class="at">n =</span> <span class="dv">15</span>) <span class="co"># Get top 10 similar tracks</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns for clarity</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>similar_key_tempo <span class="ot">&lt;-</span> similar_key_tempo <span class="sc">|&gt;</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Track Name</span><span class="st">`</span> <span class="ot">=</span> track_name,</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Artist Name</span><span class="st">`</span> <span class="ot">=</span> artist_name,</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Tempo (BPM)</span><span class="st">`</span> <span class="ot">=</span> tempo,</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Key</span><span class="st">`</span> <span class="ot">=</span> key</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">#View(similar_key_tempo)</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>top_ten_keytemp <span class="ot">&lt;-</span> similar_key_tempo  <span class="sc">|&gt;</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable table to display the similar key tempo tracks</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(top_ten_keytemp) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 49%">
+<col style="width: 18%">
+<col style="width: 9%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">track_id</th>
+<th style="text-align: left;">Track Name</th>
+<th style="text-align: left;">Artist Name</th>
+<th style="text-align: right;">Tempo (BPM)</th>
+<th style="text-align: right;">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">71tjsDvB4EMJqNG8EMmFnb</td>
+<td style="text-align: left;">Comin’ Home Baby</td>
+<td style="text-align: left;">Mel Tormé</td>
+<td style="text-align: right;">143.121</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1f2lkuLldqRzvaFjJdjGXX</td>
+<td style="text-align: left;">Santa Claus Is Comin’ to Town</td>
+<td style="text-align: left;">Mariah Carey</td>
+<td style="text-align: right;">143.109</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4NTWZqvfQTlOMitlVn6tew</td>
+<td style="text-align: left;">The Show Goes On</td>
+<td style="text-align: left;">Lupe Fiasco</td>
+<td style="text-align: right;">143.067</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10eDxSTjwMBq1ZjZK5b1cK</td>
+<td style="text-align: left;">Millennia</td>
+<td style="text-align: left;">Crown The Empire</td>
+<td style="text-align: right;">143.036</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2rUwQj4SWaP2anuGDtNpYR</td>
+<td style="text-align: left;">Self-Made</td>
+<td style="text-align: left;">Bryson Tiller</td>
+<td style="text-align: right;">143.001</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0UDCfleTgwihlnOUxbzokR</td>
+<td style="text-align: left;">Awake</td>
+<td style="text-align: left;">BTS</td>
+<td style="text-align: right;">142.816</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6NGi23FFKq9tH5NR1NcTw2</td>
+<td style="text-align: left;">Let Her Cry</td>
+<td style="text-align: left;">Hootie &amp; The Blowfish</td>
+<td style="text-align: right;">142.570</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3403qFGo7u2ptUyJbdEkjI</td>
+<td style="text-align: left;">For the Widows in Paradise, For the Fatherless in Ypsilanti</td>
+<td style="text-align: left;">Sufjan Stevens</td>
+<td style="text-align: right;">142.433</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4F55RCGuM477OjznpYGhYz</td>
+<td style="text-align: left;">Shortie Like Mine</td>
+<td style="text-align: left;">Bow Wow</td>
+<td style="text-align: right;">142.149</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7g8OpS827dAYU067lZaR0L</td>
+<td style="text-align: left;">Just a Dream</td>
+<td style="text-align: left;">Carrie Underwood</td>
+<td style="text-align: right;">142.060</td>
+<td style="text-align: right;">7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+<ol start="3" type="1">
+<li>What other songs were released by the same artists?</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Heuristic 3: Same Artist</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>same_artist_tracks <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(artist_name <span class="sc">%in%</span> anchor_songs<span class="sc">$</span>artist_name) <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(track_id, track_name, artist_name)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">#View(same_artist_tracks)</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable Extra table to display the same artist tracks</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>top_ten_same <span class="ot">&lt;-</span> same_artist_tracks <span class="sc">|&gt;</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(top_ten_same) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">track_id</th>
+<th style="text-align: left;">track_name</th>
+<th style="text-align: left;">artist_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">31L9yLXSj6LpCFupyMV6CR</td>
+<td style="text-align: left;">Up&amp;Up</td>
+<td style="text-align: left;">Coldplay</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5qfZRNjt2TkHEL12r3sDEU</td>
+<td style="text-align: left;">Everglow</td>
+<td style="text-align: left;">Coldplay</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4ZcnZVXwLDLWI93SLJER3a</td>
+<td style="text-align: left;">Misery</td>
+<td style="text-align: left;">Green Day</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1rkbMXhEjIytsUGbhoR5pn</td>
+<td style="text-align: left;">Life In Technicolor</td>
+<td style="text-align: left;">Coldplay</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1qIgyDoc2rwtq8w49jeWL8</td>
+<td style="text-align: left;">Oh Love</td>
+<td style="text-align: left;">Green Day</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6f49kbOuQSOsStBpyGvQfA</td>
+<td style="text-align: left;">A Head Full Of Dreams</td>
+<td style="text-align: left;">Coldplay</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6FnDerFHdaeCFovZnQ3r14</td>
+<td style="text-align: left;">Last Ride In</td>
+<td style="text-align: left;">Green Day</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3KzCJGegAcwsSik1bOgkNu</td>
+<td style="text-align: left;">Words I Might Have Ate</td>
+<td style="text-align: left;">Green Day</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6c6W25YoDGjTq3qSPOga5t</td>
+<td style="text-align: left;">Ink</td>
+<td style="text-align: left;">Coldplay</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3HWDWyIqWuLsTHECx9DvXF</td>
+<td style="text-align: left;">Birds</td>
+<td style="text-align: left;">Coldplay</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+<ol start="4" type="1">
+<li>What other songs were released in the same year and have similar levels of acousticness and danceability?</li>
+</ol>
+<p>We’ll allow a range (±0.1) around the acousticness/danceability of the anchor songs.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># heuristic 4 - </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We'll allow a range (±0.1) around the acousticness/danceability of the anchor songs.</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#find the range of years for the anchor songs</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#and filter the data to find the similar songs</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>anchor_range <span class="ot">&lt;-</span> anchor_songs <span class="sc">|&gt;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_acoustic =</span> <span class="fu">min</span>(acousticness) <span class="sc">-</span> <span class="fl">0.1</span>,</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_acoustic =</span> <span class="fu">max</span>(acousticness) <span class="sc">+</span> <span class="fl">0.1</span>,</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_dance =</span> <span class="fu">min</span>(danceability) <span class="sc">-</span> <span class="fl">0.1</span>,</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_dance =</span> <span class="fu">max</span>(danceability) <span class="sc">+</span> <span class="fl">0.1</span>,</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">year_range =</span> <span class="fu">list</span>(<span class="fu">unique</span>(year))  <span class="co"># make year_range a list-column</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull the scalar values from the 1-row data frame</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>min_acoustic <span class="ot">&lt;-</span> anchor_range<span class="sc">$</span>min_acoustic</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>max_acoustic <span class="ot">&lt;-</span> anchor_range<span class="sc">$</span>max_acoustic</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>min_dance <span class="ot">&lt;-</span> anchor_range<span class="sc">$</span>min_dance</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>max_dance <span class="ot">&lt;-</span> anchor_range<span class="sc">$</span>max_dance</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>year_range <span class="ot">&lt;-</span> anchor_range<span class="sc">$</span>year_range[[<span class="dv">1</span>]]  <span class="co"># unlist the year_range safely</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Now filter safely</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>similar_vibe_tracks <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    year <span class="sc">%in%</span> year_range,</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    acousticness <span class="sc">&gt;=</span> min_acoustic,</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    acousticness <span class="sc">&lt;=</span> max_acoustic,</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>    danceability <span class="sc">&gt;=</span> min_dance,</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    danceability <span class="sc">&lt;=</span> max_dance</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(track_id, track_name, artist_name, year)</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a><span class="co">#View(similar_vibe_tracks)</span></span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>top_ten_vibe <span class="ot">&lt;-</span> similar_vibe_tracks <span class="sc">|&gt;</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a><span class="co">#create a kable table to display the similar vibe tracks</span></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(top_ten_vibe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 34%">
+<col style="width: 27%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">track_id</th>
+<th style="text-align: left;">track_name</th>
+<th style="text-align: left;">artist_name</th>
+<th style="text-align: right;">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">28jOIJzouTp7gqhtx7RbGa</td>
+<td style="text-align: left;">Blame It On Bad Luck</td>
+<td style="text-align: left;">Bayside</td>
+<td style="text-align: right;">2005</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4e4vO6bp5nSdP9G79O3qS6</td>
+<td style="text-align: left;">Miss Me Baby</td>
+<td style="text-align: left;">Chris Cagle</td>
+<td style="text-align: right;">2005</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2YxoC2dYOotjqt08dEifsc</td>
+<td style="text-align: left;">Chromakey Dreamcoat</td>
+<td style="text-align: left;">Boards of Canada</td>
+<td style="text-align: right;">2005</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2itu79WbZhUCHX4jg0fyAd</td>
+<td style="text-align: left;">Never Let This Go</td>
+<td style="text-align: left;">Paramore</td>
+<td style="text-align: right;">2005</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">53Qpn8LPa0IhFCTiPO0Bbm</td>
+<td style="text-align: left;">I Disappear</td>
+<td style="text-align: left;">The Faint</td>
+<td style="text-align: right;">2004</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0L639McB94IkUvIgZKM1E5</td>
+<td style="text-align: left;">Pirates</td>
+<td style="text-align: left;">Bullets And Octane</td>
+<td style="text-align: right;">2004</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5fHkJ1a7v0JFPiT9rFQI8U</td>
+<td style="text-align: left;">Te Daré Lo Mejor</td>
+<td style="text-align: left;">Jesús Adrián Romero</td>
+<td style="text-align: right;">2004</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6u84UiQ3TRczfYTDVYrz7S</td>
+<td style="text-align: left;">Someone That You’re With</td>
+<td style="text-align: left;">Nickelback</td>
+<td style="text-align: right;">2005</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">433JymbpWnRMHXzp1oTRP7</td>
+<td style="text-align: left;">Don’t Bother</td>
+<td style="text-align: left;">Shakira</td>
+<td style="text-align: right;">2005</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4sjjV02cN3nDOIZPJabEgM</td>
+<td style="text-align: left;">The Time Is Now</td>
+<td style="text-align: left;">John Cena</td>
+<td style="text-align: right;">2005</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+<ol start="5" type="1">
+<li>What other songs were released have similar levels of valence?</li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Valence(Mood) or emotional tone of the track</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># names(anchor_songs)</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#We will use the valence column to find similar songs</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>valence_range <span class="ot">&lt;-</span> anchor_songs <span class="sc">|&gt;</span> <span class="fu">summarise</span>(</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">min_valence =</span> <span class="fu">min</span>(valence) <span class="sc">-</span> <span class="fl">0.001</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_valence =</span> <span class="fu">max</span>(valence) <span class="sc">+</span> <span class="fl">0.001</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#compare  the valence of the anchor songs to the valence of the other songs</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>similar_valence_tracks <span class="ot">&lt;-</span> inner_join_data <span class="sc">|&gt;</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    valence <span class="sc">&gt;=</span> valence_range<span class="sc">$</span>min_valence,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    valence <span class="sc">&lt;=</span> valence_range<span class="sc">$</span>max_valence</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(track_id, track_name, artist_name, valence)</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns for clarity</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>similar_valence_tracks <span class="ot">&lt;-</span> similar_valence_tracks <span class="sc">|&gt;</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Track Name</span><span class="st">`</span> <span class="ot">=</span> track_name,</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Artist Name</span><span class="st">`</span> <span class="ot">=</span> artist_name,</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Valence</span><span class="st">`</span> <span class="ot">=</span> valence</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="co">#View(similar_valence_tracks)</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>top_ten_valence <span class="ot">&lt;-</span> similar_valence_tracks <span class="sc">|&gt;</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a kable table to display the similar valence tracks</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(top_ten_valence) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 58%">
+<col style="width: 18%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">track_id</th>
+<th style="text-align: left;">Track Name</th>
+<th style="text-align: left;">Artist Name</th>
+<th style="text-align: right;">Valence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3lpa6fzS3rSAbRogEhWxu7</td>
+<td style="text-align: left;">Star Spangled Banner - Live at Woodstock</td>
+<td style="text-align: left;">Jimi Hendrix</td>
+<td style="text-align: right;">0.129</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1YBf7Tq9bpcVwvnlP8YbQS</td>
+<td style="text-align: left;">Year Zero</td>
+<td style="text-align: left;">Ghost B.C.</td>
+<td style="text-align: right;">0.137</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">52WTLETEHs5jwCr7LCq0VW</td>
+<td style="text-align: left;">Queen</td>
+<td style="text-align: left;">Perfume Genius</td>
+<td style="text-align: right;">0.130</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5qfZRNjt2TkHEL12r3sDEU</td>
+<td style="text-align: left;">Everglow</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">0.136</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">0WCbhE2evMrIwRM0DlMy9k</td>
+<td style="text-align: left;">Mixtape (feat. Young Thug &amp; Lil Yachty)</td>
+<td style="text-align: left;">Chance The Rapper</td>
+<td style="text-align: right;">0.126</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5eG8QuQKOBvDeCyoOeMkhT</td>
+<td style="text-align: left;">Alps</td>
+<td style="text-align: left;">Novo Amor</td>
+<td style="text-align: right;">0.135</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7hmdJhc4W0idVVoMES7F9F</td>
+<td style="text-align: left;">If I Know Me</td>
+<td style="text-align: left;">George Strait</td>
+<td style="text-align: right;">0.146</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4qKDjmz094Bu2wMepNuwVN</td>
+<td style="text-align: left;">Main Title / Once Upon A Dream / Prologue - From “Sleeping Beauty” Soundtrack</td>
+<td style="text-align: left;">Chorus - Sleeping Beauty</td>
+<td style="text-align: right;">0.143</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1fckqKAI9ug7U1DgQrrOop</td>
+<td style="text-align: left;">Believe It - feat. Rick Ross</td>
+<td style="text-align: left;">Meek Mill</td>
+<td style="text-align: right;">0.138</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0st2C7aLz9xkr7JyshhUHK</td>
+<td style="text-align: left;">Scandal of Grace</td>
+<td style="text-align: left;">Hillsong United</td>
+<td style="text-align: right;">0.138</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<section id="creating-the-ultimate-playlist-1" class="level2">
+<h2 class="anchored" data-anchor-id="creating-the-ultimate-playlist-1">Creating the Ultimate Playlist</h2>
+<blockquote class="blockquote">
+<p>The following playlist is comprised of the offical 12 candidates selected for the playlist before ordering. It was created using all four heurtics above to find songs of similar standing as the chosen anchor songs. Additionally, it’s comprised of 2 songs that I was not familiar with, <code>I Disappear</code> and <code>Chromakey Dreamcoat</code>. This means that the playlist is also pretty diverse in terms of popularity.</p>
+</blockquote>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#final Playlist Candidate</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Now combine all those results and filter down to at least 20 unique songs, making sure at least 8 are not “popular” (say, popularity &lt; 60)</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>anchor_artists <span class="ot">&lt;-</span> <span class="fu">unique</span>(anchor_songs<span class="sc">$</span>artist_name)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>anchor_ids <span class="ot">&lt;-</span> <span class="fu">unique</span>(anchor_songs<span class="sc">$</span>track_id)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>all_candidates <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  co_occurring_tracks,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  similar_key_tempo,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  similar_vibe_tracks,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  similar_valence_tracks</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>artist_name <span class="sc">%in%</span> anchor_artists) <span class="sc">|&gt;</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(track_id, track_name, artist_name)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Join with popularity info</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>final_candidates <span class="ot">&lt;-</span> all_candidates <span class="sc">|&gt;</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(inner_join_data <span class="sc">|&gt;</span> <span class="fu">select</span>(track_name, artist_name, popularity,valence,energy,danceability), <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"track_name"</span>, <span class="st">"artist_name"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">|&gt;</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">is_popular =</span> <span class="fu">ifelse</span>(popularity <span class="sc">&gt;=</span> <span class="dv">60</span>, <span class="st">"Not Popular"</span>, <span class="st">"Popular"</span>))</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>popular_split <span class="ot">&lt;-</span> final_candidates <span class="sc">|&gt;</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_split</span>(is_popular)</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>non_popular <span class="ot">&lt;-</span> popular_split[[<span class="fu">which</span>(<span class="fu">levels</span>(<span class="fu">as.factor</span>(final_candidates<span class="sc">$</span>is_popular)) <span class="sc">==</span> <span class="st">"Not Popular"</span>)]] <span class="sc">|&gt;</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">4</span>)</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>popular <span class="ot">&lt;-</span> popular_split[[<span class="fu">which</span>(<span class="fu">levels</span>(<span class="fu">as.factor</span>(final_candidates<span class="sc">$</span>is_popular)) <span class="sc">==</span> <span class="st">"Popular"</span>)]] <span class="sc">|&gt;</span></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">6</span>)</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>final_playlist <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(non_popular, popular)</span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Select relevant columns from anchor_songs</span></span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>anchor_clean <span class="ot">&lt;-</span> anchor_songs <span class="sc">|&gt;</span></span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(track_id, track_name, artist_name, popularity, valence, energy, danceability)</span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine with the rest of the playlist</span></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>final_playlist <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(final_playlist, anchor_clean) <span class="sc">|&gt;</span></span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(track_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="co"># Avoid duplicates</span></span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(final_playlist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 24%">
+<col style="width: 16%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">track_id</th>
+<th style="text-align: left;">track_name</th>
+<th style="text-align: left;">artist_name</th>
+<th style="text-align: right;">popularity</th>
+<th style="text-align: right;">valence</th>
+<th style="text-align: right;">energy</th>
+<th style="text-align: right;">danceability</th>
+<th style="text-align: left;">is_popular</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2JdhRRTl3ee6pQQupVQqyb</td>
+<td style="text-align: left;">How Great Is Our God</td>
+<td style="text-align: left;">Chris Tomlin</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">0.0765</td>
+<td style="text-align: right;">0.573</td>
+<td style="text-align: right;">0.318</td>
+<td style="text-align: left;">Not Popular</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7oK9VyNzrYvRFo7nQEYkWN</td>
+<td style="text-align: left;">Mr.&nbsp;Brightside</td>
+<td style="text-align: left;">The Killers</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0.2320</td>
+<td style="text-align: right;">0.924</td>
+<td style="text-align: right;">0.356</td>
+<td style="text-align: left;">Not Popular</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5oQcOu1omDykbIPSdSQQNJ</td>
+<td style="text-align: left;">1985</td>
+<td style="text-align: left;">Bowling For Soup</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">0.9030</td>
+<td style="text-align: right;">0.887</td>
+<td style="text-align: right;">0.606</td>
+<td style="text-align: left;">Not Popular</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7lRlq939cDG4SzWOF4VAnd</td>
+<td style="text-align: left;">I’m Not Okay (I Promise)</td>
+<td style="text-align: left;">My Chemical Romance</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">0.2550</td>
+<td style="text-align: right;">0.940</td>
+<td style="text-align: right;">0.210</td>
+<td style="text-align: left;">Not Popular</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">28jOIJzouTp7gqhtx7RbGa</td>
+<td style="text-align: left;">Blame It On Bad Luck</td>
+<td style="text-align: left;">Bayside</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">0.4140</td>
+<td style="text-align: right;">0.692</td>
+<td style="text-align: right;">0.323</td>
+<td style="text-align: left;">Popular</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4e4vO6bp5nSdP9G79O3qS6</td>
+<td style="text-align: left;">Miss Me Baby</td>
+<td style="text-align: left;">Chris Cagle</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">0.3570</td>
+<td style="text-align: right;">0.569</td>
+<td style="text-align: right;">0.526</td>
+<td style="text-align: left;">Popular</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2YxoC2dYOotjqt08dEifsc</td>
+<td style="text-align: left;">Chromakey Dreamcoat</td>
+<td style="text-align: left;">Boards of Canada</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0.7660</td>
+<td style="text-align: right;">0.825</td>
+<td style="text-align: right;">0.643</td>
+<td style="text-align: left;">Popular</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2itu79WbZhUCHX4jg0fyAd</td>
+<td style="text-align: left;">Never Let This Go</td>
+<td style="text-align: left;">Paramore</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0.5290</td>
+<td style="text-align: right;">0.880</td>
+<td style="text-align: right;">0.519</td>
+<td style="text-align: left;">Popular</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">53Qpn8LPa0IhFCTiPO0Bbm</td>
+<td style="text-align: left;">I Disappear</td>
+<td style="text-align: left;">The Faint</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0.6770</td>
+<td style="text-align: right;">0.860</td>
+<td style="text-align: right;">0.627</td>
+<td style="text-align: left;">Popular</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0L639McB94IkUvIgZKM1E5</td>
+<td style="text-align: left;">Pirates</td>
+<td style="text-align: left;">Bullets And Octane</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0.7580</td>
+<td style="text-align: right;">0.907</td>
+<td style="text-align: right;">0.521</td>
+<td style="text-align: left;">Popular</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3ZffCQKLFLUvYM59XKLbVm</td>
+<td style="text-align: left;">Wake Me Up When September Ends</td>
+<td style="text-align: left;">Green Day</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">0.1460</td>
+<td style="text-align: right;">0.814</td>
+<td style="text-align: right;">0.546</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7LVHVU3tWfcxj5aiPFEW4Q</td>
+<td style="text-align: left;">Fix You</td>
+<td style="text-align: left;">Coldplay</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">0.1240</td>
+<td style="text-align: right;">0.417</td>
+<td style="text-align: right;">0.209</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<section id="the-final-playlist-visualized" class="level1">
+<h1>The Final Playlist Visualized</h1>
+<blockquote class="blockquote">
+<p>With our final 12 candidates for the ultimate playlist, we can now analyze the metrics that define <code>Echoes of the Boulevard</code> as the ultimate selection. In the following visualization, the playlist ranks higher on the feature value scale compared to danceability and valence. This aligns with the fact that the anchor songs are less danceable and carry a more melancholic, emotionally somber tone. Additionally, this validates that the playlist consists of tracks with similar characteristics to the anchor songs, ensuring a cohesive and consistent listening experience.</p>
+</blockquote>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Order by sonic flow</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ordered_playlist <span class="ot">&lt;-</span> final_playlist <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(valence <span class="sc">+</span> energy)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View final playlist</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#View(ordered_playlist)</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize Playlist</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>ordered_playlist <span class="ot">&lt;-</span> ordered_playlist <span class="sc">|&gt;</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">energy =</span> <span class="fu">as.numeric</span>(energy),</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">valence =</span> <span class="fu">as.numeric</span>(valence),</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">danceability =</span> <span class="fu">as.numeric</span>(danceability)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the 'ordered_playlist' has all the necessary columns</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>ordered_playlist <span class="ot">&lt;-</span> ordered_playlist <span class="sc">|&gt;</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">order =</span> <span class="fu">row_number</span>())</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: Ensure track_name is a factor to maintain order</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>ordered_playlist <span class="ot">&lt;-</span> ordered_playlist <span class="sc">|&gt;</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">track_name =</span> <span class="fu">factor</span>(track_name, <span class="at">levels =</span> track_name))</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Now build the plot</span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ordered_playlist, <span class="fu">aes</span>(<span class="at">x =</span> track_name)) <span class="sc">+</span></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> energy), <span class="at">color =</span> <span class="st">"orange"</span>, <span class="at">size =</span> <span class="fl">1.2</span>, <span class="at">group =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> danceability), <span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="fl">1.2</span>, <span class="at">group =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> valence), <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="fl">1.2</span>, <span class="at">group =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Ultimate Playlist: Echoes of The Boulevard"</span>,</span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Energy (orange), Danceability (blue), Valence (purple)"</span>,</span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Track Name"</span>,</span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Feature Value (0–1 scale)"</span></span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mp03_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/<Tiffany-B>\.github\.io\/STA9750-2025-SPRING\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
