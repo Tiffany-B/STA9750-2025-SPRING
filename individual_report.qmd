@@ -1,0 +1,713 @@
+---
+title: "Final Individual Report"
+author: "Stephanie Jean Baptiste"
+format:
+  html:
+    page-layout: full
+    df-print: kable
+    smooth-scroll: true
+    css: styles.css
+execute:
+  echo: true  
+  warning: false
+  message: false
+draft: false
+project:
+  type: website
+  output-dir: docs
+---
+
+
+### Introduction
+
+<br>
+  
+*Artificial intelligence (AI)* has been increasingly influencing various occupations, prompting discussions about its impact on the workforce. This report examines the AI Impact Ratio, a metric representing the percentage of AI's effect on different job titles. This ratio is converted from a percentage (e.g., "75%") into a decimal (0.75) for visualization purposes, allowing for a clearer representation of AI’s influence across different professions.
+
+
+The analysis focuses on the relationship between `AI Impact Ratio, Task Count, and Education Level`. The Task Count refers to the number of tasks associated with each job title, while the Education Level indicates the typical educational background required for entry into a specific occupation.By examining these variables, we aim to determine whether jobs with more or fewer tasks are more susceptible to AI automation. Additionally, occupations are categorized based on the typical education level required for entry, providing further insight into how AI impacts different levels of educational attainment. Lastly, to understand how AI affects various job titles and whether certain occupations are more susceptible to automation than others.
+
+This report aims to answer the overarching question: `How will jobs be affected by AI?`
+
+<br>
+By analyzing the AI Impact Ratio, Task Count, and Education Level, we can gain insights into the potential implications of AI on the labor market. The findings will help individuals, businesses, and policymakers understand the evolving landscape of work in an AI-driven economy.
+
+The analysis is based on two datasets: the [AI Impact Ratio dataset](https://www.kaggle.com/datasets/manavgupta92/from-data-entry-to-ceo-the-ai-job-threat-index) and the [Bureau of Labor Statistics (BLS) dataset](https://data.bls.gov/projections/occupationProj). The AI Impact Ratio dataset provides information on the percentage of AI's impact on various job titles, while the BLS dataset offers insights into employment projections, education levels, and training requirements for different occupations. By merging these datasets, we can gain a comprehensive understanding of how AI influences job titles across various sectors.
+
+<br> 
+
+### Table of Contents
+
+<br>
+The analysis is structured as follows:
+
+1. *Data Import and Cleaning*: This section outlines the process of importing and cleaning the datasets, including fuzzy matching to combine the two datasets based on job titles.
+2. *Exploratory Data Analysis*: This section presents the analysis of the combined dataset, focusing on the AI Impact Ratio, Task Count, and Education Level. It includes visualizations and statistical summaries to illustrate the relationships between these variables.
+3. *Graph Analysis and Key Observations*: This section discusses the key patterns and trends observed in the data, including the relationship between AI Impact Ratio, Task Count, and Education Level.
+4. *Conclusions and Implications*: This section summarizes the findings of the analysis and discusses the implications for individuals, businesses, and policymakers in the context of AI's impact on the labor market.
+
+
+<br><br>
+
+### Data Import and Cleaning
+
+<br>
+The key steps in this process include:
+
+* *Importing the Datasets*: The AI Impact Ratio dataset and the Bureau of Labor Statistics (BLS) dataset are imported into R for analysis.
+* *Cleaning the Datasets*: The datasets are cleaned to ensure consistency and accuracy. This includes renaming columns, removing unnecessary columns, and standardizing job titles for better matching.
+* *Fuzzy Matching*: The datasets are combined using fuzzy matching techniques to account for variations in job titles. This step ensures that similar job titles from both datasets are matched correctly, even if they are not identical.
+* *Finalizing the Combined Dataset*: The combined dataset is finalized by renaming columns, removing duplicates, and ensuring that all relevant information is included for analysis.
+* *Creating a Kable Table*: A kable table is created to present the combined dataset in a clear and organized manner, making it easier to visualize the data.
+
+<br><br>
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(fuzzyjoin)
+library(stringr)
+library(readr)
+library(knitr)
+library(kableExtra)
+#Read in the data
+ai <- read_csv("ai_threat_index.csv")
+bls <- read_csv("bls_projections.csv")
+bls_clean <- bls |> 
+  select(-`Occupation Code`, -`Median Annual Wage 2024`, -`Education Code`, -`Workex Code`)
+#-Occupation Code, -Median Annual Wage 2023,Education Code, Workex Code
+
+#Clean the AI data
+ai_clean <- ai |> 
+  rename(job_title = `Job titiles`) |> 
+  mutate(job_title = str_to_lower(str_trim(job_title)))
+
+#Clean the Bureau of Labor Statistics data
+bls_clean <- bls_clean |> 
+  rename(job_title = `Occupation Title`) |> 
+  mutate(job_title = str_to_lower(str_trim(job_title)))
+
+#Combine the two datasets using fuzzy matching
+combined_data <- stringdist_inner_join(
+  ai_clean, bls_clean,
+  by = "job_title",
+  max_dist = 0.4,         
+  method = "jw"       
+)
+
+#see the structure of the combined data
+combined_data <- combined_data |> 
+  select(-job_title.y)
+combined_data <- combined_data |> 
+  rename(job_title = job_title.x)
+#glimpse(combined_data)
+#view(combined_data)
+
+#rename all columns in combined_data
+combined_data <- combined_data |>
+  select(-trCode) |>
+  rename(
+    Job_Title = job_title,
+    AI_Impact_Ratio = `AI Impact`,
+    Education_Level = `Typical Entry-Level Education`,
+    Job_Training = `Typical on-the-job Training`,
+    `Employment_Change_2023_2033` = `Employment Change, 2023-2033`,
+    `Employment_Percent_Change_2023_2033` = `Employment Percent Change, 2023-2033`,
+    `Work_Experience` = `Work Experience in a Related Occupation`,
+    `Occupational_Openings_Annual_Avg` = `Occupational Openings, 2023-2033 Annual Average`
+  )
+#names(combined_data)
+# Use str_to_title() from the stringr package to capitalize the first letter of each word
+combined_data$Job_Title <- stringr::str_to_title(combined_data$Job_Title)
+
+# Verify the change by viewing the updated job titles
+#head(combined_data$Job_Title)
+#glimpse (combined_data)
+
+glimpse_combined_data <- combined_data |> 
+  slice_head(n = 20)
+kable(glimpse_combined_data) |>
+  scroll_box(width = "100%", height = "400px")
+
+```
+
+<br><br>
+
+### Exploratory Data Analysis
+
+<br>
+
+The exploratory data analysis (EDA) section focuses on examining the AI Impact Ratio, Task Count, and Education Level across different job titles. 
+
+The analysis includes the following key components:
+
+1. *Top 10 Job Titles with the Highest AI Impact Ratios*: Identifies the job titles most susceptible to AI automation.
+2. *Top 10 Job Titles with the Lowest AI Impact Ratios*: Highlights which occupations are least affected by AI.
+3. *Top 10 Job Titles with the Highest Number of Tasks*: Displays roles that involve more responsibilities.
+4. *Top 10 Job Titles with the Lowest Number of Tasks*: Identifies simpler roles with fewer tasks.
+5. *Average AI Impact Ratios by Education Level*: Examines AI’s effect across education levels.
+6. *Maximum AI Impact Ratios by Education Level*: Highlights the most affected roles in each educational category.
+7. *Distribution of AI Impact Ratios*: Provides insights into the overall impact of AI on various occupations.
+8. *Distribution of AI Impact Ratios by Education Level*: Explores how educational background influences AI’s effect.
+9. *AI Impact Ratios vs Task Count*:  Explores how job complexity affects AI susceptibility.
+10. *AI Impact Ratios vs Task Count Across Different Education Levels*: Examines the interplay between education and task complexity.
+11. *Correlation Between AI Impact Ratios, Task Count, and Education Level*: Analyzes how these variables interact.
+12. *Interactive Visualization*: Provides dynamic insights through tables and graphs to help individuals, businesses, and policymakers navigate AI’s impact on work.
+
+<br>
+
+> `Note`: Education Levels and AI Impact
+> Occupations are divided into eight distinct education levels to facilitate analysis. Each level is treated as a categorical variable, allowing for the creation of separate mini-plots that compare AI impact across different educational backgrounds. This approach enables comparisons between jobs requiring a high school diploma and those necessitating a doctoral degree.
+<br>
+
+> The education levels analyzed in this report include: 
+<br>
+
+> * Doctoral or Professional Degree: Requires at least three years of full-time academic work beyond a bachelor’s degree.
+> * Master’s Degree: Typically involves one to two years of study beyond a bachelor’s degree.
+> * Bachelor’s Degree: Generally completed in four to five years of full-time academic study beyond high school.
+> * Associate’s Degree: Requires at least two years, but not more than four years, of study beyond high school.
+> * Postsecondary Non-Degree Award: Involves formal education that leads to a certificate or award but does not result in a degree.
+> * Some College, No Degree: Represents individuals who have taken some postsecondary coursework but did not earn a degree.
+> * High School Diploma or Equivalent: Includes completion of a high school program or equivalent credential, such as the General Education Development (GED) certificate.
+> * No Formal Educational Credential: No barrier to entry
+
+> The education levels are crucial in understanding the relationship between AI impact and job complexity. By categorizing occupations based on their educational requirements, we can assess how AI may affect various fields depending on their level of expertise and complexity.
+
+
+<br><br>
+
+##### **Top 10 job titles with the highest AI impact ratios**
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+
+library(kableExtra)
+
+#what are the top 10 job titles with the highest AI impact ratios?
+top_10_highAIImpact <- combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |> #find unique job titles
+  filter(!is.na(AI_Impact_Ratio)) |>
+  mutate(
+    AI_Impact_Ratio = as.numeric(str_remove(AI_Impact_Ratio, "%")) / 100
+  ) |>
+  arrange(desc(AI_Impact_Ratio)) |>
+  slice_head(n = 10) |>
+  select(Job_Title, AI_Impact_Ratio) |>
+  rename("Job Title" = Job_Title, "AI Impact Ratio" = AI_Impact_Ratio)  # Renaming the columns
+#View(top_10_highAIImpact)
+
+#create kable for the top 10 job titles with the highest AI impact ratios
+kable(top_10_highAIImpact)
+ 
+```
+
+<br><br>
+
+##### **Top 10 job titles with the lowest AI impact ratios**
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+
+library(kableExtra)
+
+#What are the top 10 job titles with the lowest AI impact ratios?
+top_10_lowAIImpact <- combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |> #find unique job titles
+  filter(!is.na(AI_Impact_Ratio)) |>
+  mutate(
+    AI_Impact_Ratio = as.numeric(str_remove(AI_Impact_Ratio, "%")) / 100
+  ) |>
+  arrange(AI_Impact_Ratio) |>
+  slice_head(n = 10) |>
+  select(Job_Title, AI_Impact_Ratio) |>
+  rename("Job Title" = Job_Title, "AI Impact Ratio" = AI_Impact_Ratio)  # Renaming the columns
+#View(top_10_lowAIImpact)
+
+#create kable for the top 10 job titles with the lowest AI impact ratios
+kable(top_10_lowAIImpact)
+
+```
+
+<br><br>
+
+##### **Top 10 job titles with the highest number of tasks**
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+
+#what is the top ten job titles with the highest number of tasks?
+library(kableExtra)
+top_10_highTaskCount <- combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |> #find unique job titles
+  filter(!is.na(Tasks)) |>
+  arrange(desc(Tasks)) |>
+  slice_head(n = 10) |>
+  select(Job_Title, Tasks) |>
+  rename("Job Title" = Job_Title)  # Renaming the column to "Job Title"
+#View(top_10_highTaskCount)
+
+#create kable for the top 10 job titles with the highest number of tasks
+kable(top_10_highTaskCount)
+
+
+```
+
+<br><br>
+
+##### **Top 10 job titles with the lowest number of tasks**
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+
+library(kableExtra)
+#What are the top ten job titles with the lowest number of tasks?
+top_10_lowTaskCount <- combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |> #find unique job titles
+  filter(!is.na(Tasks)) |>
+  arrange(Tasks) |>
+  slice_head(n = 10) |>
+  select(Job_Title, Tasks) |>
+  rename("Job Title" = Job_Title)  # Renaming the column to "Job Title"
+#View(top_10_lowTaskCount)
+#create kable for the top 10 job titles with the lowest number of tasks
+kable(top_10_lowTaskCount)
+ 
+
+
+```
+
+<br><br>
+
+##### **Every Education level's Average AI impact ratios from highest to lowest**
+
+> It summarizes the overall exposure of jobs by education level to AI. A higher average (over 0.30 or 30%) means most jobs are more affected by AI. A lower average (less than 0.30 or 30%) means AI impacts jobs less, on average.
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+
+library(kableExtra)
+#What is each education levels Average AI impact ratios? (from highest to lowest)
+edulevel_avg_highAIImpact <- combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |> #find unique job titles
+  filter(!is.na(AI_Impact_Ratio), !is.na(Education_Level)) |>
+  mutate(
+    AI_Impact_Ratio = as.numeric(str_remove(AI_Impact_Ratio, "%")) / 100,
+    Education_Level = as.factor(Education_Level)
+  ) |>
+  group_by(Education_Level) |>
+  summarise(
+    Avg_AI_Impact_Ratio = round(mean(AI_Impact_Ratio, na.rm = TRUE), 3),
+    Count = n()
+  ) |>
+  arrange(desc(Avg_AI_Impact_Ratio)) |>
+  rename("Education Level" = Education_Level, 
+         "Average AI Impact Ratio" = Avg_AI_Impact_Ratio) #renaming the columns
+#print(edulevel_avg_highAIImpact)
+#View(edulevel_avg_highAIImpact)
+
+#create kable for the average AI impact ratios by education level
+kable(edulevel_avg_highAIImpact) 
+
+```
+
+<br><br>
+
+##### **Every Education Levels Maximum AI impact ratios from highest to lowest**
+
+>  The job titles associated with higher education levels (like Bachelor's degree and Doctoral degree) tend to have higher AI impact ratios, but interestingly, there are some jobs with a High school diploma or No formal educational credential that also have very high AI impact ratios. The Count tells you how many job titles within each education level contribute to the maximum AI impact ratio. For example, there are 2233 job titles with a Bachelor's degree, and the maximum AI impact ratio among those job titles is 0.98.
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+
+library(kableExtra)
+#What is each education levels Maximum AI impact ratios? (from highest to lowest)
+edulevel_max_highAIImpact <- combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |> #find unique job titles
+  filter(!is.na(AI_Impact_Ratio), !is.na(Education_Level)) |>
+  mutate(
+    AI_Impact_Ratio = as.numeric(str_remove(AI_Impact_Ratio, "%")) / 100,  #for converting the AI impact ratio to a numeric value
+    Education_Level = as.factor(Education_Level)
+  ) |>
+  group_by(Education_Level) |>
+  summarise(
+    Max_AI_Impact_Ratio = round(max(AI_Impact_Ratio, na.rm = TRUE), 3),
+    Count = n()
+  ) |>
+  arrange(desc(Max_AI_Impact_Ratio)) |>
+  rename("Education Level" = Education_Level, 
+         "Max AI Impact Ratio" = Max_AI_Impact_Ratio) #renaming the columns
+#print(edulevel_max_highAIImpact)
+#View(edulevel_max_highAIImpact)
+
+#create kable for the maximum AI impact ratios by education level
+kable(edulevel_max_highAIImpact) 
+
+
+
+
+```
+
+<br><br>
+
+### Visualizations
+
+<br>
+
+The following visualizations provide insights into the AI Impact Ratio, Task Count, and Education Level across different job titles. The visualizations include bar plots and scatter plots to illustrate the relationships between these variables.
+
+
+<br><br>
+
+##### **Bar plot for Max AI Impact Ratio by Education Level**
+
+> The bar plots show the average and maximum AI impact ratios for each education level, with the number of job titles contributing to that average or maximum displayed above each bar. The x-axis represents the education levels, while the y-axis shows the average or maximum AI impact ratio. The bars are colored based on the education level.
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 6
+
+library(ggplot2)
+# Create a bar plot for Max AI Impact Ratio by Education Level
+ggplot(edulevel_max_highAIImpact, aes(x = `Education Level`, y = `Max AI Impact Ratio`, fill = `Education Level`)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(
+    title = "Maximum AI Impact Ratio by Education Level",
+    x = "Education Level",
+    y = "Max AI Impact Ratio"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold", color = "black")) +
+        scale_fill_brewer(palette = "Set3") +
+        scale_y_continuous(labels = scales::percent_format(accuracy = 1), 
+                           breaks = seq(0, 1, 0.1)) +
+        geom_text(aes(label = Count), vjust = -0.5, size = 3.5) +
+        theme(legend.position = "none")
+# The bar plot shows the maximum AI impact ratio for each education level, with the number of job titles contributing to that maximum displayed above each bar. The x-axis represents the education levels, while the y-axis shows the maximum AI impact ratio. The bars are colored based on the education level.
+
+```
+
+<br><br>
+
+##### **Distribution of AI impact ratios across different job titles**
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 6
+
+#What is the distribution of AI impact ratios across different job titles?
+combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |>
+  filter(!is.na(AI_Impact_Ratio)) |>
+  mutate(
+    AI_Impact_Ratio = as.numeric(str_remove(AI_Impact_Ratio, "%")) / 100
+  ) |>
+   ggplot(aes(x = AI_Impact_Ratio)) +
+  geom_histogram(bins = 30, fill="darkblue", color = "black", alpha = 0.7) +
+  scale_x_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    breaks = seq(0, 1, 0.1)
+  ) +
+  labs(
+    title = "Distribution of AI Impact Ratio",
+    x = "AI Impact Ratio",
+    y = "Job Count"
+  ) +
+  theme_minimal()+
+  theme(
+        axis.title.x = element_text(size = 12, face = "bold", color = "black"),
+        axis.title.y = element_text(size = 12, face = "bold", color = "black"),
+        axis.text = element_text(size = 10, face="bold", color = "black"),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold", color = "black"),
+        legend.position = "none",
+        plot.title.position = "plot"
+        )
+
+```
+
+<br><br>
+
+##### **Distribution of AI impact ratios across different education levels**
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 6
+
+#What is the distribution of AI impact ratios across different education levels?
+combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |>
+  filter(!is.na(AI_Impact_Ratio), !is.na(Education_Level)) |>
+  mutate(
+    AI_Impact_Ratio = as.numeric(str_remove(AI_Impact_Ratio, "%")) / 100,
+    Education_Level = as.factor(Education_Level)
+  ) |>
+  ggplot(aes(x = Education_Level, y = AI_Impact_Ratio, fill = Education_Level)) +
+  geom_boxplot(alpha = 0.7) +
+  scale_y_continuous(
+    breaks = seq(0, 1, 0.1),
+    labels = scales::percent_format()
+  ) +
+  labs(
+    title = "Distribution of AI Impact Ratio by Education Level",
+    x = "Education Level",
+    y = "AI Impact Ratio"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 45, hjust = 1, size = 8, face = "bold", color = "black"),
+        axis.title.x = element_text(size = 12, face = "bold", color = "black"),
+        axis.title.y = element_text(size = 12, face = "bold", color = "black"),
+        axis.text = element_text(size = 10, face="bold", color = "black"),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold", color = "black")
+        ) # Rotate + resize labels)
+
+```
+
+<br><br>
+
+##### **AI impact ratios vs the number of tasks performed**
+
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 6
+
+#What is the relationship between AI impact ratios and the number of tasks performed?
+combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |>
+  filter(!is.na(AI_Impact_Ratio), !is.na(Tasks)) |>
+  mutate(
+    AI_Impact_Ratio = as.numeric(str_remove(AI_Impact_Ratio, "%")) / 100
+  ) |>
+  ggplot(aes(x = Tasks, y = AI_Impact_Ratio)) +
+  geom_point(alpha = 0.7, color = "deepskyblue2", size = 2) +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    breaks = seq(0, 1, 0.1)
+  ) +
+  labs(
+    title = "AI Impact Ratio vs Number of Tasks",
+    x = "Number of Tasks",
+    y = "AI Impact Ratio",
+  ) +
+  theme_minimal()+
+  theme(
+        axis.title.x = element_text(size = 12, face = "bold", color = "black"),
+        axis.title.y = element_text(size = 12, face = "bold", color = "black"),
+        axis.text = element_text(size = 10, face="bold", color = "black"),
+        plot.title = element_text(size = 14, hjust = 0.5, face = "bold", color = "black"),
+        legend.position = "none",
+        plot.title.position = "plot"
+        )
+
+```
+
+<br><br>
+
+##### **AI impact ratios vs the number of tasks performed across different education levels**
+
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 6
+
+#What is the relationship between AI impact ratios and the number of tasks performed across different education levels?
+combined_data |>
+  distinct(Job_Title, .keep_all = TRUE) |>
+  filter(!is.na(AI_Impact_Ratio), !is.na(Tasks), !is.na(Education_Level)) |>
+  mutate(
+    AI_Impact_Ratio = as.numeric(str_remove(AI_Impact_Ratio, "%")) / 100,
+    Education_Level = as.factor(Education_Level)
+  ) |>
+  ggplot(aes(x = Tasks, y = AI_Impact_Ratio)) +
+  geom_point(alpha = 0.5, color = "darkgreen") +
+  facet_wrap(~ Education_Level, scales = "free_x") +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    breaks = seq(0, 1, 0.1)
+  ) +
+  labs(
+    title = "AI Impact Ratio vs Number of Tasks by Education Level",
+    x = "Number of Tasks",
+    y = "AI Impact Ratio"
+  ) +
+  theme_minimal()+
+  theme(
+        axis.title.x = element_text(size = 12, face = "bold", color = "black"),
+        axis.title.y = element_text(size = 12, face = "bold", color = "black"),
+        axis.text = element_text(size = 10, face="bold", color = "black"),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold", color = "black"),
+        strip.text = element_text(size = 8, face = "bold", color = "black"),
+        legend.position = "none",
+        plot.title.position = "plot"
+        )
+
+```
+
+<br><br>
+
+### Specific Question
+
+<br>
+
+***How does the AI impact ratio correlate with the number of tasks performed and the education level associated with different job titles?***
+
+The color scheme used in the visualization is as follows:
+<br>
+  *Orange indicates a higher job count.*
+  *Blue represents a lower job count.*
+  
+<br><br>
+
+```{r echo=TRUE}
+#| code-fold: true
+#| code-summary: "Code"
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 12
+
+#How does the AI impact ratio correlate with the number of tasks performed and the education level associated with different job titles?
+
+library(ggplot2)
+library(plotly)
+
+combined_data |>
+  #distinct(Job_Title, .keep_all = TRUE) |>
+  filter(!is.na(AI_Impact_Ratio), !is.na(Tasks), !is.na(Education_Level)) |>
+  mutate(
+    AI_Impact_Ratio = as.numeric(str_remove(AI_Impact_Ratio, "%")) / 100,
+    Education_Level = as.factor(Education_Level)
+  ) |>
+  ggplot(aes(x = Tasks, y = AI_Impact_Ratio)) +
+  geom_bin2d(bins = c(30, 20)) +
+  facet_wrap(~ Education_Level, scales = "free_x") +
+  scale_fill_gradient(
+    low = "darkblue", high = "darkorange", name = "Job Count"
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    breaks = seq(0, 1, 0.1)
+  ) +
+  labs(
+    title = "AI Impact vs Tasks by Education Level",
+    x = "Number of Tasks",
+    y = "AI Impact Ratio"
+  ) +
+  theme_minimal(base_family = "Helvetica") +
+  theme(
+    plot.title = element_text(size = 20, face = "bold", color = "darkblue", hjust = 0.5),
+    axis.title.x = element_text(size = 16, face = "bold", color = "darkblue", hjust = 0.5),
+    axis.title.y = element_text(size = 16, face = "bold", color = "darkblue"),
+    axis.text = element_text(size = 9, face ="bold", color = "black"),
+    strip.text = element_text(size = 9, face = "bold", color = "black"),
+    legend.title = element_text(size = 9, face = "bold"),
+    legend.position = "right",
+    plot.title.position = "plot",
+    panel.spacing = unit(2.5, "lines")  # << Add this line
+  ) -> plot
+
+# Convert to interactive plotly object
+interactive_plot <- ggplotly(plot)
+
+# Show interactive plot
+interactive_plot
+
+```
+
+<br><br>
+
+### Graph Analysis and Key Observations
+
+Several key patterns emerge from the data:
+
+Lower-task jobs tend to have higher AI Impact Ratios, meaning they are more likely to be automated. This suggests that jobs with a lower number of responsibilities are more susceptible to AI disruption. 
+
+Jobs requiring a High School Diploma, Bachelor's Degree, and Doctoral or Professional Degree showed a higher job count but lower task count. Despite this, these roles exhibited a more higher AI Impact Ratios implying that they may be more vulnerable to automation.
+
+The relationship between task count and AI impact suggests that jobs with fewer tasks face greater risks. Conversely, occupations with a higher task count tend to have lower AI Impact Ratios, indicating that roles with more responsibilities and complexity are less likely to be taken over by AI.
+
+No clear correlation was found between high AI Impact Ratio and a high number of tasks, reinforcing the idea that job complexity plays a significant role in automation susceptibility rather than sheer task count alone.
+
+<br> 
+
+#### Data Distribution Insights
+
+Further analysis of the dataset reveals additional trends:
+
+The education level with the least data points was Some College, No Degree, meaning fewer occupations fall under this category in the dataset.
+The education level with the most data points was Bachelor’s Degree, indicating that this credential is the most prevalent among recorded job titles.
+Master’s Degree and No Formal Educational Credential were the only education levels with no job titles reaching a ~100% AI Impact Ratio, implying that jobs requiring these levels of education may have stronger resistance to automation. Most of the data points were concentrated between 0% and 50% AI Impact Ratio and 0 to 1,000 tasks, suggesting that AI influence remains moderate across a broad range of occupations.
+
+<br>
+
+### Conclusions and Implications
+
+Based on the findings of this analysis, we can draw the following conclusions:
+Most jobs are unlikely to be fully automated by AI, even if they have a high or low number of tasks. This suggests that while AI can streamline processes, full job displacement remains limited.
+
+Jobs with fewer tasks and higher job counts are more vulnerable, particularly those requiring:
+
+
+- High School Diploma
+- Bachelor’s Degree
+- Doctoral or Professional Degree
+  
+<br>  
+
+#### Addressing the Overarching Question
+  
+This analysis aims to answer the broader question: `How will jobs be affected by AI?`
+
+AI’s impact on jobs depends on education level, task count, and job type. Roles with more tasks generally face lower automation risk, as complexity offers some protection. Conversely, simpler jobs with higher overall numbers, especially those requiring a High School Diploma, Bachelor’s Degree, or Doctoral/Professional Degree, are more vulnerable to AI-driven displacement. While AI continues to evolve, complete job replacement remains unlikely, particularly for professions requiring specialized expertise or diverse responsibilities.
+
+In conclusion, AI will influence the labor market, but full automation is unlikely for most job titles. The relationship between job complexity, task count, and AI impact should be carefully considered by individuals, businesses, and policymakers when evaluating the future of work in an AI-driven economy.
+
+
+
+
+
+
